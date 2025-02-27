@@ -23,15 +23,16 @@ public class ProgMain {
     public static void main(String[] args) {
 
         init();
+        int ch;
         int choix;
 
         sections.add(new Section("PO85", LocalDate.parse("2024-12-02"), LocalDate.parse("2025-07-25"), lesPO85));
 
         do {
             afficherMenu();
-            choix = LecureConsole.lectureChoisInt(0, 5);
-            gestionMenu(choix);
-        } while (choix != 0);
+            ch = LecureConsole.lectureChoisInt(0, 5);
+            gestionMenu(ch);
+        } while (ch != 0);
     }
 
     /**
@@ -42,6 +43,7 @@ public class ProgMain {
         switch (choix) {
             case 1:
                 // creerSection();
+                System.out.println("Fonctionnalité non implémentée");
                 break;
             case 2:
                 afficherSection();

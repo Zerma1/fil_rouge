@@ -1,9 +1,13 @@
 package commons.utils;
 
+import java.util.Scanner;
+
 import static commons.utils.readPrimitif.readInt;
 import static commons.utils.readPrimitif.readString;
 
 public class LecureConsole {
+
+    static Scanner scanner = new Scanner(System.in);
 
     /**
      * Lecture d'un Integer compris choix < index1 || choix > index2
@@ -22,15 +26,12 @@ public class LecureConsole {
         do{
             boucle = false;
 
-            choix = readInt();
-
+            choix = scanner.nextInt();
 
             if (choix < index1 || choix > index2){
                 System.out.println("Erreur de saisie, veuillez recommencer :");
                 boucle = true;
             }
-
-
         }while (boucle);
 
         return choix;
@@ -51,7 +52,7 @@ public class LecureConsole {
         do{
             boucle = false;
 
-            choix = readInt();
+            choix = scanner.nextInt();
 
 
             if (choix<=0){
@@ -78,7 +79,7 @@ public class LecureConsole {
         do {
             boucle = false;
 
-            str = readString();
+            str = scanner.nextLine();
 
             if (str.isEmpty()) {
                 System.out.println("Erreur de saisie," + str + "n'est pas une entrée valide veuillez recommencer :");

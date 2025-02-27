@@ -7,10 +7,6 @@ import entities.grades.GradesAire;
 import entities.grades.GradesMarine;
 import entities.grades.GradesTerre;
 
-import entities.armee.Marine;
-import entities.armee.Aire;
-import entities.armee.Terre;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -93,21 +89,19 @@ public class Section {
         String prenom = LecureConsole.lectureChoisString();
         System.out.println("Type d'armée (1: Marine, 2: Aire, 3: Terre) :");
         int typeArmee = LecureConsole.lectureChoisInt(1, 3);
-        System.out.println("Grade :");
-        String grade = LecureConsole.lectureChoisString();
         System.out.println("Matricule :");
         int matricule = LecureConsole.lectureChoisInt();
 
         Militaire militaire;
         switch (typeArmee) {
             case 1:
-                militaire = new entities.Marine(nom, prenom, matricule, grade);
+                militaire = new entities.Marine(nom, prenom, matricule);
                 break;
             case 2:
-                militaire = new entities.Aire(nom, prenom, matricule, grade);
+                militaire = new entities.Aire(nom, prenom, matricule);
                 break;
             case 3:
-                militaire = new entities.Terre(nom, prenom, matricule, grade);
+                militaire = new entities.Terre(nom, prenom, matricule);
                 break;
             default:
                 throw new IllegalArgumentException("Type d'armée invalide");

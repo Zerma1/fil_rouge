@@ -5,6 +5,7 @@ import commons.utils.LecureConsole;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public enum GradesMarine {
@@ -50,6 +51,15 @@ public enum GradesMarine {
         this.trigramme = "";
         this.prefixOTAN = "";
         this.indiceOTAN = 0;
+    }
+
+    //GETTERS
+    public static List<GradesMarine> getListeGrade() {
+        return Collections.unmodifiableList(listeGrade);
+    }
+
+    public static GradesMarine getGrade(int index){
+        return listeGrade.get(index);
     }
 
     @Override

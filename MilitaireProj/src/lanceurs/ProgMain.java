@@ -2,13 +2,18 @@ package lanceurs;
 
 import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;
-import entities.grades.GradesAire;
+import entities.Marine;
+import entities.Aire;
+import entities.Terre;
 import entities.Militaire;
 import entities.Section;
+import entities.grades.GradesAire;
+import entities.grades.GradesMarine;
+import entities.grades.GradesTerre;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class ProgMain {
 
@@ -20,63 +25,74 @@ public class ProgMain {
         init();
         int choix;
 
-        sections.add(new Section("PO85", "2021-09-01", "2022-09-01", lesPO85));
+        sections.add(new Section("PO85", LocalDate.parse("2024-12-02"), LocalDate.parse("2025-07-25"), lesPO85));
 
         do {
-
-            AffichageConsole.afficherMenu("MENU PRINCIPALE :");
-
-            choix = LecureConsole.lectureChoisInt(0, 3);
-
+            afficherMenu();
+            choix = LecureConsole.lectureChoisInt(0, 5);
             gestionMenu(choix);
-
-        }while (choix != 0);
-
+        } while (choix != 0);
     }
-
-
 
     /**
      * Gestion du menu
      * @param choix
      */
     private static void gestionMenu(int choix) {
-        switch (choix){
+        switch (choix) {
             case 1:
-                //creerSection();
+                // creerSection();
                 break;
             case 2:
-                // afficherSection();
+                afficherSection();
                 break;
             case 3:
-                //ajouterMilitaire();
+                ajouterMilitaire();
                 break;
             case 4:
-                //supprimerMilitaire();
+                supprimerMilitaire();
                 break;
             case 5:
-                //modifierMilitaire();
-                break;
-            case 6:
-                //designerChefSection();
+                // modifierMilitaire();
                 break;
             case 0:
                 System.out.println("Au revoir");
                 break;
-
+            default:
+                System.out.println("Choix invalide");
+                break;
         }
     }
 
-//    /**
-//     * Affiche les membres de la section
-//     */
-//    private static void afficherSection(){
-//        AffichageConsole.printListe("Les PO85 :", lesPO85);
-//    }
+    /**
+     * Affiche les membres de la section
+     */
+    private static void afficherSection() {
+        for (Section section : sections) {
+            section.afficherSection();
+        }
+    }
+
+    /**
+     * Ajoute un militaire à la section
+     */
+    private static void ajouterMilitaire() {
+        Section section = sections.get(0); // Assuming we are adding to the first section
+        section.ajouterMembre();
+    }
+
+    /**
+     * Supprime un militaire de la section
+     */
+    private static void supprimerMilitaire() {
+        Section section = sections.get(0); // Assuming we are removing from the first section
+        section.supprimerMembreSection();
+    }
+
     /**
      * Affiche le menu
      */
-    private static void afficherMenu(){
+    private static void afficherMenu() {
         System.out.println("Menu :");
         System.out.println("1 - Creer section");
         System.out.println("2 - Afficher les militaires");
@@ -85,23 +101,23 @@ public class ProgMain {
         System.out.println("5 - Modifier un militaire");
         System.out.println("0 - Quitter");
     }
+
     /**
      * Initialise la section
      */
-    private static void init(){
-        lesPO85.add(new Militaire("LE GLUDIC", "Quentin", GradesAire.MAITRE, 1));
-        lesPO85.add(new Militaire("FONTAINE", "Baptiste", GradesAire.SERGENT, 2));
-        lesPO85.add(new Militaire("FAURE", "Bryce", GradesAire.SERGENT, 3));
-        lesPO85.add(new Militaire("KICHELM", "Thomas", GradesAire.SERGENT, 4));
-        lesPO85.add(new Militaire("BOUTTANT", "Matthieu", GradesAire.SERGENT, 5));
-        lesPO85.add(new Militaire("LEMARTINEL", "Thomas", GradesAire.SERGENT, 6));
-        lesPO85.add(new Militaire("JOLY", "Simon", GradesAire.SERGENT, 7));
-        lesPO85.add(new Militaire("MICHELENA", "Patxi", GradesAire.SERGENT, 8));
-        lesPO85.add(new Militaire("LENOBLE", "Cyril", GradesAire.SERGENT, 9));
-        lesPO85.add(new Militaire("VILLENEUVE", "Harry", GradesAire.SERGENT, 10));
-        lesPO85.add(new Militaire("EUZEN", "Ashley", GradesAire.SERGENT, 11));
-        lesPO85.add(new Militaire("OLSEN", "Yves", GradesAire.SERGENT, 12));
-        lesPO85.add(new Militaire("RAKOTOBE", "Tsiriniaina", GradesAire.SERGENT, 13));
+    private static void init() {
+        lesPO85.add(new Marine("LE GLUDIC", "Quentin", 1, GradesMarine.MAITRE));
+        lesPO85.add(new Aire("FONTAINE", "Baptiste", 2, GradesAire.SERGENT));
+        lesPO85.add(new Aire("FAURE", "Bryce", 3, GradesAire.SERGENT));
+        lesPO85.add(new Aire("KICHELM", "Thomas", 4, GradesAire.SERGENT));
+        lesPO85.add(new Aire("BOUTTANT", "Matthieu", 5, GradesAire.SERGENT));
+        lesPO85.add(new Aire("LEMARTINEL", "Thomas", 6, GradesAire.SERGENT));
+        lesPO85.add(new Aire("JOLY", "Simon", 7, GradesAire.SERGENT));
+        lesPO85.add(new Aire("MICHELENA", "Patxi", 8, GradesAire.SERGENT));
+        lesPO85.add(new Aire("LENOBLE", "Cyril", 9, GradesAire.SERGENT));
+        lesPO85.add(new Aire("VILLENEUVE", "Harry", 10, GradesAire.SERGENT));
+        lesPO85.add(new Aire("EUZEN", "Ashley", 11, GradesAire.SERGENT));
+        lesPO85.add(new Aire("OLSEN", "Yves", 12, GradesAire.SERGENT));
+        lesPO85.add(new Aire("RAKOTOBE", "Tsiriniaina", 13, GradesAire.SERGENT));
     }
-
 }

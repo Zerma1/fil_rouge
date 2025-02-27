@@ -1,23 +1,26 @@
-package entities.armee;
+// Aire.java
+package entities;
 
-import entities.Militaire;
-import entities.grades.GradesAire;
+public class Aire extends Militaire {
+    private String grade;
 
-public class Aire  extends Militaire {
-
-    //ATTRIBUTS
-    GradesAire grade;
-
-    //CONSTRUCTEUR
-    public Aire(String nom, String prenom, GradesAire grade, int matricule) {
+    // Constructeur
+    public Aire(String nom, String prenom, int matricule, String grade) {
         super(nom, prenom, matricule);
         this.grade = grade;
     }
 
-    //GETTERS
+    // Méthodes
+    @Override
+    public void sePresenter() {
+        System.out.println("Je suis le " + grade + " " + super.getNom() + " " + getPrenom() + " de l'Aire.");
+    }
 
-    //SETTERS
-
-    //METHODES
-
+    @Override
+    public String toString() {
+        return "Aire ->" + " " +
+                "nom : " + super.getNom() + " | " +
+                "prenom : " + super.getPrenom() + " | " +
+                "grade : " + grade;
+    }
 }

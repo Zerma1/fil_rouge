@@ -1,23 +1,26 @@
-package entities.armee;
-
-import entities.Militaire;
-import entities.grades.GradesTerre;
+// Terre.java
+package entities;
 
 public class Terre extends Militaire {
+    private String grade;
 
-    //ATTRIBUTS
-    private GradesTerre grade;
-
-    //CONSTRUCTEUR
-    public Terre(String nom, String prenom, GradesTerre grade, int matricule) {
+    // Constructeur
+    public Terre(String nom, String prenom, int matricule, String grade) {
         super(nom, prenom, matricule);
         this.grade = grade;
     }
 
-    //GETTERS
+    // Méthodes
+    @Override
+    public void sePresenter() {
+        System.out.println("Je suis le " + grade + " " + super.getNom() + " " + getPrenom() + " de la Terre.");
+    }
 
-    //SETTERS
-
-    //METHODES
-
+    @Override
+    public String toString() {
+        return "Terre ->" + " " +
+                "nom : " + super.getNom() + " | " +
+                "prenom : " + super.getPrenom() + " | " +
+                "grade : " + grade;
+    }
 }

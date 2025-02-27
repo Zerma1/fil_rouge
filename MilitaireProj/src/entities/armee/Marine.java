@@ -1,24 +1,26 @@
-package entities.armee;
+// Marine.java
+package entities;
 
-import entities.Militaire;
-import entities.grades.GradesMarine;
+public class Marine extends Militaire {
+    private String grade;
 
-public class Marine  extends Militaire {
-
-    //ATTRIBUTS
-    GradesMarine grade;
-
-    //CONSTRUCTEUR
-    public Marine(String nom, String prenom, GradesMarine grade, int matricule) {
+    // Constructeur
+    public Marine(String nom, String prenom, int matricule, String grade) {
         super(nom, prenom, matricule);
         this.grade = grade;
-
     }
 
-    //GETTERS
+    // Méthodes
+    @Override
+    public void sePresenter() {
+        System.out.println("Je suis le " + grade + " " + super.getNom() + " " + getPrenom() + " de la Marine.");
+    }
 
-    //SETTERS
-
-    //METHODES
-
+    @Override
+    public String toString() {
+        return "Marine ->" + " " +
+                "nom : " + super.getNom() + " | " +
+                "prenom : " + super.getPrenom() + " | " +
+                "grade : " + grade;
+    }
 }

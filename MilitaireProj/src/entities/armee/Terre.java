@@ -1,11 +1,13 @@
 // Terre.java
 package entities;
 
+import entities.grades.GradesTerre;
+
 public class Terre extends Militaire {
-    private String grade;
+    private GradesTerre grade;
 
     // Constructeur
-    public Terre(String nom, String prenom, int matricule, String grade) {
+    public Terre(String nom, String prenom, int matricule, GradesTerre grade) {
         super(nom, prenom, matricule);
         this.grade = grade;
     }

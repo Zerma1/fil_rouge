@@ -52,6 +52,11 @@ public enum GradesMarine {
         this.prefixOTAN = prefixOTAN;
         this.indiceOTAN = indiceOTAN;
     }
+    GradesMarine() {
+        this.trigramme = "";
+        this.prefixOTAN = "";
+        this.indiceOTAN = 0;
+    }
 
     @Override
     public String toString() {

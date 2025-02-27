@@ -1,11 +1,13 @@
 // Marine.java
 package entities;
 
+import entities.grades.GradesMarine;
+
 public class Marine extends Militaire {
-    private String grade;
+    private GradesMarine grade;
 
     // Constructeur
-    public Marine(String nom, String prenom, int matricule, String grade) {
+    public Marine(String nom, String prenom, int matricule, GradesMarine grade) {
         super(nom, prenom, matricule);
         this.grade = grade;
     }

@@ -1,11 +1,13 @@
 // Aire.java
 package entities;
 
+import entities.grades.GradesAire;
+
 public class Aire extends Militaire {
-    private String grade;
+    private GradesAire grade;
 
     // Constructeur
-    public Aire(String nom, String prenom, int matricule, String grade) {
+    public Aire(String nom, String prenom, int matricule, GradesAire grade) {
         super(nom, prenom, matricule);
         this.grade = grade;
     }

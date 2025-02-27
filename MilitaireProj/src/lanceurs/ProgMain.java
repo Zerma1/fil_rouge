@@ -2,7 +2,7 @@ package lanceurs;
 
 import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;
-import entities.Grades;
+import entities.grades.GradesAire;
 import entities.Militaire;
 import entities.Section;
 
@@ -89,19 +89,19 @@ public class ProgMain {
      * Initialise la section
      */
     private static void init(){
-        lesPO85.add(new Militaire("LE GLUDIC", "Quentin", Grades.MAITRE, 1));
-        lesPO85.add(new Militaire("FONTAINE", "Baptiste", Grades.SERGENT, 2));
-        lesPO85.add(new Militaire("FAURE", "Bryce", Grades.SERGENT, 3));
-        lesPO85.add(new Militaire("KICHELM", "Thomas", Grades.SERGENT, 4));
-        lesPO85.add(new Militaire("BOUTTANT", "Matthieu", Grades.SERGENT, 5));
-        lesPO85.add(new Militaire("LEMARTINEL", "Thomas", Grades.SERGENT, 6));
-        lesPO85.add(new Militaire("JOLY", "Simon", Grades.SERGENT, 7));
-        lesPO85.add(new Militaire("MICHELENA", "Patxi", Grades.SERGENT, 8));
-        lesPO85.add(new Militaire("LENOBLE", "Cyril", Grades.SERGENT, 9));
-        lesPO85.add(new Militaire("VILLENEUVE", "Harry", Grades.SERGENT, 10));
-        lesPO85.add(new Militaire("EUZEN", "Ashley", Grades.SERGENT, 11));
-        lesPO85.add(new Militaire("OLSEN", "Yves", Grades.SERGENT, 12));
-        lesPO85.add(new Militaire("RAKOTOBE", "Tsiriniaina", Grades.SERGENT, 13));
+        lesPO85.add(new Militaire("LE GLUDIC", "Quentin", GradesAire.MAITRE, 1));
+        lesPO85.add(new Militaire("FONTAINE", "Baptiste", GradesAire.SERGENT, 2));
+        lesPO85.add(new Militaire("FAURE", "Bryce", GradesAire.SERGENT, 3));
+        lesPO85.add(new Militaire("KICHELM", "Thomas", GradesAire.SERGENT, 4));
+        lesPO85.add(new Militaire("BOUTTANT", "Matthieu", GradesAire.SERGENT, 5));
+        lesPO85.add(new Militaire("LEMARTINEL", "Thomas", GradesAire.SERGENT, 6));
+        lesPO85.add(new Militaire("JOLY", "Simon", GradesAire.SERGENT, 7));
+        lesPO85.add(new Militaire("MICHELENA", "Patxi", GradesAire.SERGENT, 8));
+        lesPO85.add(new Militaire("LENOBLE", "Cyril", GradesAire.SERGENT, 9));
+        lesPO85.add(new Militaire("VILLENEUVE", "Harry", GradesAire.SERGENT, 10));
+        lesPO85.add(new Militaire("EUZEN", "Ashley", GradesAire.SERGENT, 11));
+        lesPO85.add(new Militaire("OLSEN", "Yves", GradesAire.SERGENT, 12));
+        lesPO85.add(new Militaire("RAKOTOBE", "Tsiriniaina", GradesAire.SERGENT, 13));
     }
 
 }

@@ -2,11 +2,11 @@ package entities;
 
 import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;
+import entities.grades.GradesAire;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 public class Section {
@@ -77,7 +77,7 @@ public class Section {
         System.out.println("Prenom :");
         String prenom = LecureConsole.lectureChoisString();
         System.out.println("Grade :");
-        Grades grade = Grades.choisGrade();
+        GradesAire grade = GradesAire.choisGrade();
         System.out.println("Matricule :");
 
         int matricule = LecureConsole.lectureChoisInt();
@@ -101,7 +101,7 @@ public class Section {
      * @param matricule
      * ajoute le militaire à la liste
      */
-    public static void ajouterMembre(String nom, String prenom, Grades grade, int matricule) {
+    public static void ajouterMembre(String nom, String prenom, GradesAire grade, int matricule) {
         listePersonelle.add(new Militaire(nom, prenom, grade, matricule));
     }
     /**

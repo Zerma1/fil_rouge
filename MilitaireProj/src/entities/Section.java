@@ -178,13 +178,13 @@ public class Section {
 
 
 
-//    private long getNombreJours() {
-//        long diffInMillies = Math.abs(dateFin.getTime() - dateCreation.getTime());
-//        return diffInMillies / (24 * 60 * 60 * 1000);
-//    }
+private long getNombreJours() {
+    return java.time.temporal.ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
+}
 
     public void getTempRestant(){
-//        System.out.println("Il reste " + dateFin.minus + "/" + getNombreJours() + " jours avant la fin.");
+        System.out.println("Il reste " + dateFin.minus + "/" + getNombreJours() + " jours avant la fin.");
+        System.out.println("Il reste " + dateFin.minusDays(getNombreJours()) + " jours avant la fin.");
     }
 
 

@@ -7,6 +7,10 @@ import entities.grades.GradesAire;
 import entities.grades.GradesMarine;
 import entities.grades.GradesTerre;
 
+import entities.armee.Marine;
+import entities.armee.Aire;
+import entities.armee.Terre;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;

@@ -119,6 +119,6 @@ public class ProgMain {
         lesPO85.add(new Aire("EUZEN", "Ashley", 11, GradesAire.SERGENT));
         lesPO85.add(new Aire("OLSEN", "Yves", 12, GradesAire.SERGENT));
         lesPO85.add(new Aire("RAKOTOBE", "Tsiriniaina", 13, GradesAire.SERGENT));
-        lesPO85.add(new Marine("ZERMANI", "Baptiste", 2021, GradesMarine.QUARTIER_MAITRE_2));
+        lesPO85.add(new Marine("ZERMANI", "Baptiste", 2021, GradesMarine.QUARTIER_MAITRE));
     }
 }

@@ -9,34 +9,28 @@ import java.util.List;
 
 public enum GradesMarine {
     // Grades de l'armée française
-    AMIRAL("AM", "OF-", 9),
-
-
-    // Officiers
-
-    COLONEL("COL", "OF-", 5),
-    CAPITAINE("CAP", "OF-", 2),
-    LIEUTENANT("LT", "OF-", 1),
-
-    // Sous-officiers
-    MAJOR("MAJ", "OR-", 9),
-
-    MAITRE_PRINCIPAL("MTP", "OR-", 9),
-
-    PREMIER_MAITRE("PM", "OR-", 8),
-
-    MAITRE("MT","OR-",6),
-
-    SECOND_MAITRE("SM", "OR-", 5),
-
-    //Militair du rang - équipage
-    QUARTIER_MAITRE_1("QM1", "OR-", 4),
-
-    QUARTIER_MAITRE_2("QM2", "OR-", 3),
-
-    MATELOT("MOT", "OR-", 2),
-
-    MOUSSE("MUS", "OR-", 1);
+    MOUSSE ("MOT", "OR-",0),
+    MATELOT2 ("MO2", "OR-",1),
+    MATELOT1 ("MO1", "OR-",2),
+    QUARTIER_MAITRE ("QM2", "OR-",3),
+    QUARTIER_MAITRE_CHEF ("QM2", "OR-",4),
+    SECOND_MAITRE ("SM", "OR-",5),
+    MAITRE ("MT", "OR-",6),
+    PREMIER_MAITRE ("PM", "OR8-",8),
+    MAITRE_PRINCIPAL ("MP", "OR9-",9),
+    MAJOR ("MJR", "OR9-",9),
+    ASPIRANT ("ASP", "OF0-",0),
+    ENSEIGNE_DE_VAISSEAU2 ("EV2", "OF(D)-",1),
+    ENSEIGNE_DE_VAISSEAU1 ("EV1", "OF1-",1),
+    LIEUTENANT_DE_VAISSEAU ("LV", "OF2-",2),
+    CAPITAINE_DE_CORVETTE ("CC", "OF3-",3),
+    CAPITAINE_DE_FREGATE ("CF", "OF4-",4),
+    CAPITAINE_DE_VAISSEAU ("CF", "OF5-",5),
+    CONTRE_AMIRAL ("CA", "OF6-",6),
+    VICE_AMIRAL ("VA", "OF7-",7),
+    VICE_AMIRAL_D_ESCADRE ("VAE", "OF8-",8),
+    AMIRAL ("AL", "OF9-",9),
+    AMIRAL_DE_FRANCE ("AL", "OF10-",10);
 
 //    private final String grade;
     private final String trigramme;

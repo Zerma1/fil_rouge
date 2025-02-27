@@ -29,7 +29,7 @@ public class Aire extends Militaire {
 
     // Méthodes
     private void choisirGrade(){
-        printListe("GARDES DE LA MARINE",GradesMarine.getListeGrade());
+        printListe("Rang de l'amicale du vent et du vide",GradesAire.getListeGrade());
         int choix = readInt();
         setGrade(GradesAire.getGrade(choix-1));
     }

@@ -30,7 +30,7 @@ public class Terre extends Militaire {
 
     // Méthodes
     private void choisirGrade(){
-        printListe("GARDES DE LA MARINE", GradesMarine.getListeGrade());
+        printListe("GARDES DES POUSSE CAILLOUX", GradesTerre.getListeGrade());
         int choix = readInt();
         setGrade(GradesTerre.getGrade(choix-1));
     }

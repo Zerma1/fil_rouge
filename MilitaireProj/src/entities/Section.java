@@ -176,16 +176,12 @@ public class Section {
 
 
 
-
-
-private long getNombreJours() {
-    return java.time.temporal.ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
-}
-
     public void getTempRestant(){
-        System.out.println("Il reste " + dateFin.minus + "/" + getNombreJours() + " jours avant la fin.");
-        System.out.println("Il reste " + dateFin.minusDays(getNombreJours()) + " jours avant la fin.");
+        long joursRestants = java.time.temporal.ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
+        long joursTotal = java.time.temporal.ChronoUnit.DAYS.between(dateCreation, dateFin);
+        System.out.println("Il reste " + dateFin.minusDays(joursRestants) + "/" + joursTotal + " jours avant la fin.");
     }
+
 
 
     //OVERIDE

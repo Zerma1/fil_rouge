@@ -2,7 +2,7 @@ package lanceurs;
 
 import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;
-import entities.Grades;
+import entities.references.Grades;
 import entities.Militaire;
 import entities.Section;
 

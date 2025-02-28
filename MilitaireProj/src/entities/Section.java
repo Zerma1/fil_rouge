@@ -2,11 +2,11 @@ package entities;
 
 import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;
+import entities.references.Grades;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 public class Section {

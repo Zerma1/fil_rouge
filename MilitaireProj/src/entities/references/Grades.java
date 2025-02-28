@@ -1,4 +1,4 @@
-package entities;
+package entities.references;
 
 import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;

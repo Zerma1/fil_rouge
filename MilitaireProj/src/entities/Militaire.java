@@ -1,5 +1,7 @@
 package entities;
 
+import entities.references.Grades;
+
 import java.util.Objects;
 
 public class Militaire extends Personne {

@@ -1,36 +1,39 @@
-// Militaire.java
 package entities;
 
 import java.util.Objects;
 
 public class Militaire extends Personne {
-    private int matricule;
+    Grades grade;
+    private int matiricule;
 
-    // Constructeur
-    public Militaire(String nom, String prenom, int matricule) {
+
+    //METHODES
+    public Militaire(String nom, String prenom, Grades grade, int matricule) {
         super(nom, prenom);
-        this.matricule = matricule;
+        this.grade = grade;
+        this.matiricule = matricule;
     }
 
-    // Méthodes
     public void sePresenter() {
-        System.out.println("Je suis le " + " " + super.getNom() + "  " + getPrenom());
+        System.out.println("Je suis le " + this.grade + " " + Militaire.super.getNom() + "  " + getPrenom());
     }
 
     @Override
     public String toString() {
         return "Militaire ->" + " " +
                 "nom : " + super.getNom() + " | " +
-                "prenom : " + super.getPrenom();
+                "prenom : " + super.getPrenom() + " | " +
+                "grade : " + this.grade;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNom(), getPrenom(), matricule);
+        return Objects.hash(getNom(), getPrenom(), matiricule);
     }
 
     @Override
     public boolean equals(Object aComparer) {
         return this.hashCode() == aComparer.hashCode() && aComparer instanceof Militaire;
     }
+
 }

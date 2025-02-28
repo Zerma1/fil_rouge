@@ -3,9 +3,6 @@ package commons.utils;
 import java.util.Scanner;
 
 public class readPrimitif {
-
-
-
     public static String readString(){
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
@@ -14,11 +11,9 @@ public class readPrimitif {
     }
 
     public static int readInt() {
-
         Scanner scanner = new Scanner(System.in);
-        scanner.close();
         int input = scanner.nextInt();
-
+        scanner.close();
         return input;
     }
 

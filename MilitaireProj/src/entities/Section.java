@@ -87,10 +87,10 @@ public class Section {
         String nom = LecureConsole.lectureChoisString();
         System.out.println("Prenom :");
         String prenom = LecureConsole.lectureChoisString();
-        System.out.println("Type d'armée (1: Marine, 2: Aire, 3: Terre) :");
-        int typeArmee = LecureConsole.lectureChoisInt(1, 3);
         System.out.println("Matricule :");
         int matricule = LecureConsole.lectureChoisInt();
+        System.out.println("Type d'armée (1: Marine, 2: Aire, 3: Terre) :");
+        int typeArmee = LecureConsole.lectureChoisInt(1, 3);
 
         Militaire militaire;
         switch (typeArmee) {

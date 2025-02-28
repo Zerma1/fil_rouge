@@ -23,16 +23,15 @@ public class ProgMain {
     public static void main(String[] args) {
 
         init();
-        int ch;
         int choix;
 
         sections.add(new Section("PO85", LocalDate.parse("2024-12-02"), LocalDate.parse("2025-07-25"), lesPO85));
 
         do {
             afficherMenu();
-            ch = LecureConsole.lectureChoisInt(0, 5);
-            gestionMenu(ch);
-        } while (ch != 0);
+            choix = LecureConsole.lectureChoisInt(0, 5);
+            gestionMenu(choix);
+        } while (choix != 0);
     }
 
     /**
@@ -79,16 +78,16 @@ public class ProgMain {
      * Ajoute un militaire à la section
      */
     private static void ajouterMilitaire() {
-        Section section = sections.get(0); // Assuming we are adding to the first section
-        section.ajouterMembre();
+        Section section = sections.getFirst(); // Assuming we are adding to the first section
+        Section.ajouterMembre();
     }
 
     /**
      * Supprime un militaire de la section
      */
     private static void supprimerMilitaire() {
-        Section section = sections.get(0); // Assuming we are removing from the first section
-        section.supprimerMembreSection();
+        Section section = sections.getFirst();
+        Section.supprimerMembreSection();
     }
 
     /**

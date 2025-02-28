@@ -53,13 +53,13 @@ public class LecureConsole {
             boucle = false;
 
             choix = scanner.nextInt();
-
-
-            if (choix<=0){
-                System.out.println("Erreur de saisie, veuillez recommencer :");
-                boucle = true;
-            }
-
+//
+//
+//            if (choix<=0){
+//                System.out.println("Erreur de saisie, veuillez recommencer :");
+//                boucle = true;
+//            }
+//
 
         }while (boucle);
 
@@ -79,7 +79,7 @@ public class LecureConsole {
         do {
             boucle = false;
 
-            str = scanner.nextLine();
+            str = scanner.next();
 
             if (str.isEmpty()) {
                 System.out.println("Erreur de saisie," + str + "n'est pas une entrée valide veuillez recommencer :");

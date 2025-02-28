@@ -55,7 +55,8 @@ public enum GradesMarine {
 
     //GETTERS
     public static List<GradesMarine> getListeGrade() {
-        return Collections.unmodifiableList(listeGrade);
+//        return Collections.unmodifiableList(listeGrade);
+        return listeGrade;
     }
 
     public static GradesMarine getGrade(int index){

@@ -4,7 +4,7 @@ package entities;
 import entities.grades.GradesMarine;
 
 import static commons.utils.AffichageConsole.printListe;
-import static commons.utils.readPrimitif.readInt;
+import static commons.utils.LecureConsole.lectureChoisInt;
 
 public class Marine extends Militaire {
     private GradesMarine grade;
@@ -26,10 +26,11 @@ public class Marine extends Militaire {
     }
 
     // Méthodes
-    private void choisirGrade(){
+    public void choisirGrade(){
         printListe("GARDES DE LA MARINE",GradesMarine.getListeGrade());
-        int choix = readInt();
+        int choix = lectureChoisInt();
         setGrade(GradesMarine.getGrade(choix-1));
+        System.out.println("Grade choisi : " + grade);
     }
 
     @Override

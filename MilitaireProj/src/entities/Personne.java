@@ -8,7 +8,7 @@ public class Personne {
     private String prenom;
     private LocalDate dateNaissaince ;
 
-    //CONSTRUCTEUR
+    //CONSTRUCTOR
     public Personne(String nom, String prenom) {
         setNom(nom);
         setPrenom(prenom);

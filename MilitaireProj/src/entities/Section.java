@@ -49,9 +49,13 @@ public class Section {
         return listePersonelle;
     }
 
+
     //SETTER
 
     //METHODE
+    public void afficherMembres(){
+        AffichageConsole.printListe(("Section " + nom + " :"), listePersonelle);
+    }
     /**
      * Ajoute un membre à la section
      */
@@ -100,6 +104,48 @@ public class Section {
         int index = LecureConsole.lectureChoisInt(1, listePersonelle.size());
 
         listePersonelle.remove(index-1);
+    }
+
+    /**
+     * Modifie un membre de la section
+     */
+    public static void modifierMembreSection(){
+        AffichageConsole.printListe(("Section " + nom + " :").toString(), listePersonelle);
+        System.out.println("Choisir un membre à modifier :");
+        int index = LecureConsole.lectureChoisInt(1, listePersonelle.size());
+        Militaire militaire = listePersonelle.get(index-1);
+        System.out.println("Nom :");
+        militaire.setNom(LecureConsole.lectureChoisString());
+        System.out.println("Prenom :");
+        militaire.setPrenom(LecureConsole.lectureChoisString());
+        System.out.println("Grade :");
+        militaire.setGrade(Grades.setGrade());
+    }
+    /**
+     * Modifie un membre de la section
+     * @param index
+     */
+    public static void modifierMembreSection(int index){
+        Militaire militaire = listePersonelle.get(index-1);
+        System.out.println("Nom :");
+        militaire.setNom(LecureConsole.lectureChoisString());
+        System.out.println("Prenom :");
+        militaire.setPrenom(LecureConsole.lectureChoisString());
+        System.out.println("Grade :");
+        militaire.setGrade(Grades.setGrade());
+    }
+    /**
+     * Modifie un membre de la section
+     * @param index
+     * @param nom
+     * @param prenom
+     * @param grade
+     */
+    public static void modifierMembreSection(int index, String nom, String prenom, Grades grade){
+        Militaire militaire = listePersonelle.get(index-1);
+        militaire.setNom(nom);
+        militaire.setPrenom(prenom);
+        militaire.setGrade(grade);
     }
 
     //OVERRIDE & SURCHARGE

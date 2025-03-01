@@ -1,6 +1,7 @@
 package commons.utils;
 
 import java.util.List;
+import java.util.Objects;
 
 public class AffichageConsole {
 
@@ -13,6 +14,19 @@ public class AffichageConsole {
         System.out.println("0 - Quitter");
     }
 
+    /**
+     * Permet de derouler une liset<?> et d'afficher les elements
+     * @param titre
+     * @param liste
+     */
+    public static <T> void  printListe(Objects titre, List<T> liste){
+        System.out.println(titre.toString());
+        int i = 1;
+        for (T obj : liste) {
+            System.out.println(i + " - " + obj.toString());
+            i++;
+        }
+    }
     /**
      * Permet de derouler une liset<?> et d'afficher les elements
      * @param titre

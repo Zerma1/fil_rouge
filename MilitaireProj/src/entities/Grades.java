@@ -1,4 +1,4 @@
-package entities;
+package entities.grades;
 
 import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;
@@ -9,46 +9,56 @@ import java.util.List;
 
 public enum Grades {
     // Grades de l'armée française
-    AMIRAL("AM", "OF-", 9),
-    GENERAL("GEN", "OF-", 9),
+    // HOMMES DU RANG
+    MOUSSE ("MOT", "OR-",0),
+    AVIATEUR ("AVT", "OR-",0),
+    SOLDAT ("SDT", "OR-",0),
+    MATELOT2 ("MO2", "OR-",1),
+    CAPORAL("CPL", "OR-",3),
+    MATELOT1 ("MO1", "OR-",2),
+    PREMIERE_CLASSE ("1CL", "OR-",2),
+    QUARTIER_MAITRE ("QM2", "OR-",3),
+    QUARTIER_MAITRE_CHEF ("QM2", "OR-",4),
+    CAPORAL_CHEF("CCH", "OR-",4),
 
+    // SOUS_OFFICIERS
+    SECOND_MAITRE ("SM", "OR-",5),
+    SERGENT("SGT", "OR-",5),
+    MAITRE ("MT", "OR-",6),
+    SERGENT_CHEF ("SGC", "OR-",6),
+    PREMIER_MAITRE ("PM", "OR8-",8),
+    ADJUDANT ("ADJ", "OR-",8),
+    MAITRE_PRINCIPAL ("MP", "OR9-",9),
+    ADJUDANT_CHEF ("ADC", "OR-",9),
+    MAJOR("MJR", "OR-",10),
 
-    // Officiers
+    // OFFICIERS
+    ASPIRANT ("ASP", "OF0-",0),
+    ASPIRANT_TERRE ("ASP", "OF0-",0),
+    ENSEIGNE_DE_VAISSEAU2 ("EV2", "OF(D)-",1),
+    ENSEIGNE_DE_VAISSEAU1 ("EV1", "OF1-",1),
+    SOUS_LIEUTENANT ("SLT", "OF1-",1),
+    LIEUTENANT_DE_VAISSEAU ("LV", "OF2-",2),
+    LIEUTENANT ("LTN", "OF2-",2),
+    CAPITAINE_DE_CORVETTE ("CC", "OF3-",3),
+    CAPITAINE ("CPT", "OF3-",3),
+    CAPITAINE_DE_FREGATE ("CF", "OF4-",4),
+    COMMANDANT ("CDT", "OF4-",4),
+    CAPITAINE_DE_VAISSEAU ("CF", "OF5-",5),
+    LIEUTENANT_COLONEL ("LCL", "OF5-",5),
+    COLONEL ("COL", "OF6-",6),
 
-    COLONEL("COL", "OF-", 5),
-    CAPITAINE("CAP", "OF-", 2),
-    LIEUTENANT("LT", "OF-", 1),
-
-    // Sous-officiers
-    MAJOR("MAJ", "OR-", 9),
-
-    MAITRE_PRINCIPAL("MTP", "OR-", 9),
-    ADJUDANT_CHEF("ADC", "OR-", 9),
-
-    PREMIER_MAITRE("PM", "OR-", 8),
-    ADJUDANT("ADJ", "OR-", 8),
-
-    MAITRE("MT","OR-",6),
-    SERGENT_CHEF("SGC", "OR-", 6),
-
-    SECOND_MAITRE("SM", "OR-", 5),
-    SERGENT("SGT", "OR-", 5),
-
-    //Militair du rang - équipage
-    QUARTIER_MAITRE_1("QM1", "OR-", 4),
-    CAPORAL_CHEF("CPC", "OR-", 4),
-
-    QUARTIER_MAITRE_2("QM2", "OR-", 3),
-    CAPORAL("CPL", "OR-", 3),
-
-    MATELOT("MOT", "OR-", 2),
-    PREMIER_CLASSE("1CL", "OR-", 2),
-
-    MOUSSE("MUS", "OR-", 1),
-    AVIATEUR("AVT", "OR-", 1),
-    SOLDAT("SDT", "OR-", 1);
-
-//    private final String grade;
+    // AMIRAUTEE
+    CONTRE_AMIRAL ("CA", "OF6-",6),
+    GENERAL_DE_BRIGADE ("GDB", "OF7-",7),
+    VICE_AMIRAL ("VA", "OF7-",7),
+    GENERAL_DE_DIVISION ("GDD", "OF8-",8),
+    VICE_AMIRAL_D_ESCADRE ("VAE", "OF8-",8),
+    GENERAL_DE_CORPS_D_ARMEE ("GCA", "OF9-",9),
+    AMIRAL ("AL", "OF9-",9),
+    GENERAL_D_ARME ("GDA", "OF10-",10),
+    AMIRAL_DE_FRANCE ("AL", "OF10-",10);
+    //    private final String grade;
     private final String trigramme;
     private final String prefixOTAN;
     private final int indiceOTAN;

@@ -1,5 +1,7 @@
 package commons.utils;
 
+import java.time.LocalDate;
+
 import static commons.utils.readPrimitif.readInt;
 import static commons.utils.readPrimitif.readString;
 
@@ -87,5 +89,16 @@ public class LecureConsole {
         }while (boucle);
 
         return str;
+    }
+
+    public static LocalDate lectureDate(String text) {
+        System.out.println(text);
+        System.out.println("Entrez l'année :");
+        int annee = readInt();
+        System.out.println("Entrez le mois :");
+        int mois = readInt();
+        System.out.println("Entrez le jour :");
+        int jour = readInt();
+        return LocalDate.of(annee, mois, jour);
     }
 }

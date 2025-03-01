@@ -2,25 +2,20 @@ package lanceurs;
 
 import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;
-import entities.Grades;
-import entities.Militaire;
-import entities.Section;
+import entities.grades.Grades;
+import entities.armee.Militaire;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ProgMain {
 
     private static List<Militaire> lesPO85 = new ArrayList<>();
-    private static List<Section> sections = new ArrayList<>();
 
     public static void main(String[] args) {
 
         init();
         int choix;
-
-        sections.add(new Section("PO85", "2021-09-01", "2022-09-01", lesPO85));
 
         do {
 
@@ -43,46 +38,67 @@ public class ProgMain {
     private static void gestionMenu(int choix) {
         switch (choix){
             case 1:
-                //creerSection();
+                afficherSection();
                 break;
             case 2:
-                // afficherSection();
+                ajouterMembreSection();
                 break;
             case 3:
-                //ajouterMilitaire();
+                supprimerMembreSection();
                 break;
-            case 4:
-                //supprimerMilitaire();
+            default:
+                System.out.println("Le chois est invalide");
                 break;
-            case 5:
-                //modifierMilitaire();
-                break;
-            case 6:
-                //designerChefSection();
-                break;
-            case 0:
-                System.out.println("Au revoir");
-                break;
-
         }
     }
+    /**
+     * Affiche les membres de la section
+     */
+    private static void afficherSection(){
+        AffichageConsole.printListe("Les PO85 :", lesPO85);
+    }
+    /**
+     * Ajoute un membre à la section
+     */
+    private static void ajouterMembreSection(){
+        //parametre du militaire
+        System.out.println("Nom :");
+        String nom = LecureConsole.lectureChoisString();
+        System.out.println("Prenom :");
+        String prenom = LecureConsole.lectureChoisString();
+        System.out.println("Grade :");
+        Grades grade = Grades.choisGrade();
+        System.out.println("Matricule :");
 
-//    /**
-//     * Affiche les membres de la section
-//     */
-//    private static void afficherSection(){
-//        AffichageConsole.printListe("Les PO85 :", lesPO85);
-//    }
+
+        int matricule = LecureConsole.lectureChoisInt();
+
+        //ajouter le militair dans la liste
+        lesPO85.add(new Militaire(nom, prenom, grade, matricule));
+
+    }
+    /**
+     * Supprime un membre de la section
+     */
+    private static void supprimerMembreSection(){
+
+        AffichageConsole.printListe("Les PO85 :", lesPO85);
+
+        System.out.println("Choisir un membre à supprimer :");
+
+        int index = LecureConsole.lectureChoisInt(1, lesPO85.size());
+
+        lesPO85.remove(index-1);
+    }
     /**
      * Affiche le menu
      */
     private static void afficherMenu(){
         System.out.println("Menu :");
-        System.out.println("1 - Creer section");
-        System.out.println("2 - Afficher les militaires");
-        System.out.println("3 - Ajouter un militaire");
-        System.out.println("4 - Supprimer un militaire");
-        System.out.println("5 - Modifier un militaire");
+        System.out.println("1 - Afficher les militaires");
+        System.out.println("2 - Ajouter un militaire");
+        System.out.println("3 - Supprimer un militaire");
+        System.out.println("4 - Modifier un militaire");
         System.out.println("0 - Quitter");
     }
     /**

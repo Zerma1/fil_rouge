@@ -15,7 +15,7 @@ public class Section {
     private static LocalDate dateFin;
     private static List<Militaire> listePersonelle = new ArrayList<>();
 
-    //CONSTRUCTEUR
+    //CONSTRUCTOR
     public Section(String nom, LocalDate dateCreation, LocalDate dateFin) {
         this.nom = nom;
         this.dateCreation = dateCreation;
@@ -35,6 +35,18 @@ public class Section {
         long joursRestants = java.time.temporal.ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
         long joursTotal = java.time.temporal.ChronoUnit.DAYS.between(dateCreation, dateFin);
         System.out.println("Il reste " + joursRestants + " jours sur " + joursTotal + " jours avant la fin.");
+    }
+    public String getNom() {
+        return nom;
+    }
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+    public LocalDate getDateFin() {
+        return dateFin;
+    }
+    public List<Militaire> getListePersonelle() {
+        return listePersonelle;
     }
 
     //SETTER
@@ -60,10 +72,20 @@ public class Section {
     }
     /**
      * Ajoute un membre à la section
-     * @param militaire
+     * @param millitaire
      */
-    public static void ajouterMembre(Militaire militaire){
-        listePersonelle.add(militaire);
+    public static void ajouterMembre(Militaire millitaire){
+        listePersonelle.add(millitaire);
+    }
+    /**
+     * Ajoute un membre à la section
+     * @param nom
+     * @param prenom
+     * @param grade
+     * @param matricule
+     */
+    public static void ajouterMembre(String nom, String prenom, Grades grade, int matricule){
+        listePersonelle.add(new Militaire(nom, prenom, grade, matricule));
     }
 
     /**

@@ -1,4 +1,7 @@
-package entities;
+package entities.armee;
+
+import entities.Personne;
+import entities.grades.Grades;
 
 import java.util.Objects;
 

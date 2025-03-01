@@ -2,8 +2,8 @@ package lanceurs;
 
 import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;
-import entities.Grades;
-import entities.Militaire;
+import entities.grades.Grades;
+import entities.armee.Militaire;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package entities;
+package entities.grades;
 
 import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;

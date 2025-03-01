@@ -5,7 +5,7 @@ import entities.grades.Grades;
 
 import java.util.Objects;
 
-public class Militaire extends Personne {
+public /*abstract*/ class Militaire extends Personne {
     Grades grade;
     private int matiricule;
 
@@ -31,7 +31,7 @@ public class Militaire extends Personne {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNom(), getPrenom(), matiricule);
+        return Objects.hash(getNom(), getPrenom(), (Object) this.matiricule);
     }
 
     @Override

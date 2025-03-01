@@ -4,6 +4,7 @@ import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;
 import entities.grades.Grades;
 import entities.armee.Militaire;
+import commons.utils.LecureConsole;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,6 +20,11 @@ public class Section {
         this.nom = nom;
         this.dateCreation = dateCreation;
         this.dateFin = dateFin;
+    }
+    public Section(String nom) {
+        this.nom = nom;
+        this.dateCreation = LecureConsole.lectureDate("Date de creation :");
+        this.dateFin = LecureConsole.lectureDate("Date de fin :");
     }
 
     /**
@@ -60,6 +66,14 @@ public class Section {
 
         listePersonelle.remove(index-1);
     }
+    /**
+     * affiche le temps restant avant la fin de la section
+     */
+    public void getTempRestant(){
+        long joursRestants = java.time.temporal.ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
+        long joursTotal = java.time.temporal.ChronoUnit.DAYS.between(dateCreation, dateFin);
+        System.out.println("Il reste " + joursRestants + " jours sur " + joursTotal + " jours avant la fin.");
+    }
 
     @Override
     public String toString() {
@@ -72,10 +86,5 @@ public class Section {
     }
 
 
-    public void getTempRestant(){
-        long joursRestants = java.time.temporal.ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
-        long joursTotal = java.time.temporal.ChronoUnit.DAYS.between(dateCreation, dateFin);
-        System.out.println("Il reste " + joursRestants + " jours sur " + joursTotal + " jours avant la fin.");
-    }
 
 }

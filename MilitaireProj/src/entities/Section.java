@@ -47,8 +47,6 @@ public class Section {
         listePersonelle.add(militaire);
     }
 
-
-
     /**
      * Supprime un membre de la section
      */
@@ -73,14 +71,11 @@ public class Section {
                 '}';
     }
 
-//    private long getNombreJours() {
-//        long diffInMillies = Math.abs(dateFin.getTime() - dateCreation.getTime());
-//        return diffInMillies / (24 * 60 * 60 * 1000);
-//    }
 
     public void getTempRestant(){
-//        System.out.println("Il reste " + dateFin.minus + "/" + getNombreJours() + " jours avant la fin.");
+        long joursRestants = java.time.temporal.ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
+        long joursTotal = java.time.temporal.ChronoUnit.DAYS.between(dateCreation, dateFin);
+        System.out.println("Il reste " + joursRestants + " jours sur " + joursTotal + " jours avant la fin.");
     }
-
 
 }

@@ -42,7 +42,6 @@ public enum Marine {
 
     //CONSTRUCTEUR
     Marine(String trigramme, String prefixOTAN, int indiceOTAN) {
-//        this.grade = grade;
         this.trigramme = trigramme;
         this.prefixOTAN = prefixOTAN;
         this.indiceOTAN = indiceOTAN;
@@ -53,5 +52,7 @@ public enum Marine {
     //SETTER
 
     //METHODE
+
+    //OVERRIDE & SURCHARGE
 
 }

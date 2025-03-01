@@ -59,31 +59,23 @@ public enum Grades {
     GENERAL_D_ARME ("GDA", "OF10-",10),
     AMIRAL_DE_FRANCE ("AL", "OF10-",10);
 
-//    private final String grade;
     private final String trigramme;
     private final String prefixOTAN;
     private final int indiceOTAN;
 
     private static final List<Grades> listeGrade = new ArrayList<>();
 
-
+    //CONSTRUCTEUR
     Grades(String trigramme, String prefixOTAN, int indiceOTAN) {
-//        this.grade = grade;
         this.trigramme = trigramme;
         this.prefixOTAN = prefixOTAN;
         this.indiceOTAN = indiceOTAN;
     }
 
-    @Override
-    public String toString() {
-        return name() + " ("+ trigramme + ", OTAN : " + prefixOTAN + indiceOTAN + ")";
-    }
+    //GETTERS
 
-    private static void initListeGrade(){
-        listeGrade.addAll(Arrays.asList(Grades.values()));
-    }
-
-    public static Grades choisGrade(){
+    //SETTER
+    public static Grades setGrade(){
         initListeGrade();
 
         Grades choix;
@@ -96,6 +88,19 @@ public enum Grades {
 
         return choix;
     }
+
+    //METHODE
+    private static void initListeGrade(){
+        listeGrade.addAll(Arrays.asList(Grades.values()));
+    }
+
+    //OVERRIDE & SURCHARGE
+    @Override
+    public String toString() {
+        return name() + " ("+ trigramme + ", OTAN : " + prefixOTAN + indiceOTAN + ")";
+    }
+
+
 
 
 

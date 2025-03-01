@@ -4,7 +4,6 @@ import commons.utils.AffichageConsole;
 import commons.utils.LecureConsole;
 import entities.grades.Grades;
 import entities.armee.Militaire;
-import commons.utils.LecureConsole;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,6 +15,7 @@ public class Section {
     private static LocalDate dateFin;
     private static List<Militaire> listePersonelle = new ArrayList<>();
 
+    //CONSTRUCTEUR
     public Section(String nom, LocalDate dateCreation, LocalDate dateFin) {
         this.nom = nom;
         this.dateCreation = dateCreation;
@@ -27,6 +27,19 @@ public class Section {
         this.dateFin = LecureConsole.lectureDate("Date de fin :");
     }
 
+    //GETTERS
+    /**
+     * affiche le temps restant avant la fin de la section
+     */
+    public void getTempRestant(){
+        long joursRestants = java.time.temporal.ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
+        long joursTotal = java.time.temporal.ChronoUnit.DAYS.between(dateCreation, dateFin);
+        System.out.println("Il reste " + joursRestants + " jours sur " + joursTotal + " jours avant la fin.");
+    }
+
+    //SETTER
+
+    //METHODE
     /**
      * Ajoute un membre à la section
      */
@@ -37,7 +50,7 @@ public class Section {
         System.out.println("Prenom :");
         String prenom = LecureConsole.lectureChoisString();
         System.out.println("Grade :");
-        Grades grade = Grades.choisGrade();
+        Grades grade = Grades.setGrade();
         System.out.println("Matricule :");
 
         int matricule = LecureConsole.lectureChoisInt();
@@ -66,15 +79,8 @@ public class Section {
 
         listePersonelle.remove(index-1);
     }
-    /**
-     * affiche le temps restant avant la fin de la section
-     */
-    public void getTempRestant(){
-        long joursRestants = java.time.temporal.ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
-        long joursTotal = java.time.temporal.ChronoUnit.DAYS.between(dateCreation, dateFin);
-        System.out.println("Il reste " + joursRestants + " jours sur " + joursTotal + " jours avant la fin.");
-    }
 
+    //OVERRIDE & SURCHARGE
     @Override
     public String toString() {
         return "Section{" +
@@ -84,7 +90,5 @@ public class Section {
                 ", nbMembre=" + listePersonelle +
                 '}';
     }
-
-
 
 }

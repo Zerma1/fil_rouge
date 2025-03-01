@@ -11,7 +11,7 @@ import java.util.List;
 public class ProgMain {
 
     private static List<Militaire> lesPO85 = new ArrayList<>();
-
+    //MAIN
     public static void main(String[] args) {
 
         init();
@@ -29,8 +29,8 @@ public class ProgMain {
 
     }
 
-
-
+//////////////////////////////////////////////
+    //MENUE
     /**
      * Gestion du menu
      * @param choix
@@ -52,6 +52,37 @@ public class ProgMain {
         }
     }
     /**
+     * Affiche le menu
+     */
+    private static void afficherMenu(){
+        System.out.println("Menu :");
+        System.out.println("1 - Afficher les militaires");
+        System.out.println("2 - Ajouter un militaire");
+        System.out.println("3 - Supprimer un militaire");
+        System.out.println("4 - Modifier un militaire");
+        System.out.println("0 - Quitter");
+    }
+
+    //SECTION
+    /**
+     * Initialise la section
+     */
+    private static void init(){
+        lesPO85.add(new Militaire("LE GLUDIC", "Quentin", Grades.MAITRE, 1));
+        lesPO85.add(new Militaire("FONTAINE", "Baptiste", Grades.SERGENT, 2));
+        lesPO85.add(new Militaire("FAURE", "Bryce", Grades.SERGENT, 3));
+        lesPO85.add(new Militaire("KICHELM", "Thomas", Grades.SERGENT, 4));
+        lesPO85.add(new Militaire("BOUTTANT", "Matthieu", Grades.SERGENT, 5));
+        lesPO85.add(new Militaire("LEMARTINEL", "Thomas", Grades.SERGENT, 6));
+        lesPO85.add(new Militaire("JOLY", "Simon", Grades.SERGENT, 7));
+        lesPO85.add(new Militaire("MICHELENA", "Patxi", Grades.SERGENT, 8));
+        lesPO85.add(new Militaire("LENOBLE", "Cyril", Grades.SERGENT, 9));
+        lesPO85.add(new Militaire("VILLENEUVE", "Harry", Grades.SERGENT, 10));
+        lesPO85.add(new Militaire("EUZEN", "Ashley", Grades.SERGENT, 11));
+        lesPO85.add(new Militaire("OLSEN", "Yves", Grades.SERGENT, 12));
+        lesPO85.add(new Militaire("RAKOTOBE", "Tsiriniaina", Grades.SERGENT, 13));
+    }
+    /**
      * Affiche les membres de la section
      */
     private static void afficherSection(){
@@ -67,7 +98,7 @@ public class ProgMain {
         System.out.println("Prenom :");
         String prenom = LecureConsole.lectureChoisString();
         System.out.println("Grade :");
-        Grades grade = Grades.choisGrade();
+        Grades grade = Grades.setGrade();
         System.out.println("Matricule :");
 
 
@@ -89,35 +120,6 @@ public class ProgMain {
         int index = LecureConsole.lectureChoisInt(1, lesPO85.size());
 
         lesPO85.remove(index-1);
-    }
-    /**
-     * Affiche le menu
-     */
-    private static void afficherMenu(){
-        System.out.println("Menu :");
-        System.out.println("1 - Afficher les militaires");
-        System.out.println("2 - Ajouter un militaire");
-        System.out.println("3 - Supprimer un militaire");
-        System.out.println("4 - Modifier un militaire");
-        System.out.println("0 - Quitter");
-    }
-    /**
-     * Initialise la section
-     */
-    private static void init(){
-        lesPO85.add(new Militaire("LE GLUDIC", "Quentin", Grades.MAITRE, 1));
-        lesPO85.add(new Militaire("FONTAINE", "Baptiste", Grades.SERGENT, 2));
-        lesPO85.add(new Militaire("FAURE", "Bryce", Grades.SERGENT, 3));
-        lesPO85.add(new Militaire("KICHELM", "Thomas", Grades.SERGENT, 4));
-        lesPO85.add(new Militaire("BOUTTANT", "Matthieu", Grades.SERGENT, 5));
-        lesPO85.add(new Militaire("LEMARTINEL", "Thomas", Grades.SERGENT, 6));
-        lesPO85.add(new Militaire("JOLY", "Simon", Grades.SERGENT, 7));
-        lesPO85.add(new Militaire("MICHELENA", "Patxi", Grades.SERGENT, 8));
-        lesPO85.add(new Militaire("LENOBLE", "Cyril", Grades.SERGENT, 9));
-        lesPO85.add(new Militaire("VILLENEUVE", "Harry", Grades.SERGENT, 10));
-        lesPO85.add(new Militaire("EUZEN", "Ashley", Grades.SERGENT, 11));
-        lesPO85.add(new Militaire("OLSEN", "Yves", Grades.SERGENT, 12));
-        lesPO85.add(new Militaire("RAKOTOBE", "Tsiriniaina", Grades.SERGENT, 13));
     }
 
 }

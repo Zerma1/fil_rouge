@@ -111,7 +111,7 @@ public class ProgMain {
         String nom = LecureConsole.lectureChoisString();
         listeSection.add(new Section(nom));
     }
-
+    
     /**
      * Affiche les membres de la section
      */

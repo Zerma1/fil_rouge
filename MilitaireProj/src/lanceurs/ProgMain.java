@@ -13,6 +13,9 @@ public class ProgMain {
 
     private static List<Militaire> lesPO85 = new ArrayList<>();
     private static List<Section> listeSection = new ArrayList<>();
+//    private static final Section lesPO85 = new Section("PO85");
+//    private static Section Section = new Section("PO85");
+    
 
     //MAIN
     public static void main(String[] args) {
@@ -46,16 +49,19 @@ public class ProgMain {
                 System.out.println("Au revoir");
                 break;
             case 1:
-                afficherSection();
+                nouvelleSection();
                 break;
             case 2:
-                ajouterMembreSection();
+                afficherSection();
                 break;
             case 3:
-                supprimerMembreSection();
+                ajouterMembreSection();
                 break;
             case 4:
-                modifierMembreSection();
+                supprimerMembreSection();
+                break;
+            case 5:
+//                listeSection(0).modifierMembreSection();
                 break;
             default:
                 System.out.println("Le chois est invalide");
@@ -96,9 +102,15 @@ public class ProgMain {
         lesPO85.add(new Militaire("EUZEN", "Ashley", Grades.SERGENT, 11));
         lesPO85.add(new Militaire("OLSEN", "Yves", Grades.SERGENT, 12));
         lesPO85.add(new Militaire("RAKOTOBE", "Tsiriniaina", Grades.SERGENT, 13));
+
     }
 
     //METHOD
+    private static void nouvelleSection() {
+        System.out.println("Nom de la section :");
+        String nom = LecureConsole.lectureChoisString();
+        listeSection.add(new Section(nom));
+    }
 
     /**
      * Affiche les membres de la section

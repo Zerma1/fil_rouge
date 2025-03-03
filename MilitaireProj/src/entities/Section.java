@@ -15,12 +15,47 @@ public class Section {
     private static LocalDate dateFin;
     private static List<Militaire> listePersonelle = new ArrayList<>();
 
+    //CONSTRUCTOR
     public Section(String nom, LocalDate dateCreation, LocalDate dateFin) {
         this.nom = nom;
         this.dateCreation = dateCreation;
         this.dateFin = dateFin;
     }
+    public Section(String nom) {
+        this.nom = nom;
+        this.dateCreation = LecureConsole.lectureDate("Date de creation :");
+        this.dateFin = LecureConsole.lectureDate("Date de fin :");
+    }
 
+    //GETTERS
+    /**
+     * affiche le temps restant avant la fin de la section
+     */
+    public void getTempRestant(){
+        long joursRestants = java.time.temporal.ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
+        long joursTotal = java.time.temporal.ChronoUnit.DAYS.between(dateCreation, dateFin);
+        System.out.println("Il reste " + joursRestants + " jours sur " + joursTotal + " jours avant la fin.");
+    }
+    public String getNom() {
+        return nom;
+    }
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+    public LocalDate getDateFin() {
+        return dateFin;
+    }
+    public List<Militaire> getListePersonelle() {
+        return listePersonelle;
+    }
+
+
+    //SETTER
+
+    //METHODE
+    public void afficherMembres(){
+        AffichageConsole.printListe(("Section " + nom + " :"), listePersonelle);
+    }
     /**
      * Ajoute un membre à la section
      */
@@ -31,7 +66,7 @@ public class Section {
         System.out.println("Prenom :");
         String prenom = LecureConsole.lectureChoisString();
         System.out.println("Grade :");
-        Grades grade = Grades.choisGrade();
+        Grades grade = Grades.setGrade();
         System.out.println("Matricule :");
 
         int matricule = LecureConsole.lectureChoisInt();
@@ -41,13 +76,21 @@ public class Section {
     }
     /**
      * Ajoute un membre à la section
-     * @param militaire
+     * @param millitaire
      */
-    public static void ajouterMembre(Militaire militaire){
-        listePersonelle.add(militaire);
+    public static void ajouterMembre(Militaire millitaire){
+        listePersonelle.add(millitaire);
     }
-
-
+    /**
+     * Ajoute un membre à la section
+     * @param nom
+     * @param prenom
+     * @param grade
+     * @param matricule
+     */
+    public static void ajouterMembre(String nom, String prenom, Grades grade, int matricule){
+        listePersonelle.add(new Militaire(nom, prenom, grade, matricule));
+    }
 
     /**
      * Supprime un membre de la section
@@ -63,6 +106,49 @@ public class Section {
         listePersonelle.remove(index-1);
     }
 
+    /**
+     * Modifie un membre de la section
+     */
+    public static void modifierMembreSection(){
+        AffichageConsole.printListe(("Section " + nom + " :").toString(), listePersonelle);
+        System.out.println("Choisir un membre à modifier :");
+        int index = LecureConsole.lectureChoisInt(1, listePersonelle.size());
+        Militaire militaire = listePersonelle.get(index-1);
+        System.out.println("Nom :");
+        militaire.setNom(LecureConsole.lectureChoisString());
+        System.out.println("Prenom :");
+        militaire.setPrenom(LecureConsole.lectureChoisString());
+        System.out.println("Grade :");
+        militaire.setGrade(Grades.setGrade());
+    }
+    /**
+     * Modifie un membre de la section
+     * @param index
+     */
+    public static void modifierMembreSection(int index){
+        Militaire militaire = listePersonelle.get(index-1);
+        System.out.println("Nom :");
+        militaire.setNom(LecureConsole.lectureChoisString());
+        System.out.println("Prenom :");
+        militaire.setPrenom(LecureConsole.lectureChoisString());
+        System.out.println("Grade :");
+        militaire.setGrade(Grades.setGrade());
+    }
+    /**
+     * Modifie un membre de la section
+     * @param index
+     * @param nom
+     * @param prenom
+     * @param grade
+     */
+    public static void modifierMembreSection(int index, String nom, String prenom, Grades grade){
+        Militaire militaire = listePersonelle.get(index-1);
+        militaire.setNom(nom);
+        militaire.setPrenom(prenom);
+        militaire.setGrade(grade);
+    }
+
+    //OVERRIDE & SURCHARGE
     @Override
     public String toString() {
         return "Section{" +
@@ -72,15 +158,5 @@ public class Section {
                 ", nbMembre=" + listePersonelle +
                 '}';
     }
-
-//    private long getNombreJours() {
-//        long diffInMillies = Math.abs(dateFin.getTime() - dateCreation.getTime());
-//        return diffInMillies / (24 * 60 * 60 * 1000);
-//    }
-
-    public void getTempRestant(){
-//        System.out.println("Il reste " + dateFin.minus + "/" + getNombreJours() + " jours avant la fin.");
-    }
-
 
 }

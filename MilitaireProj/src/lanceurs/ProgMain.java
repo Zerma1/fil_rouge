@@ -13,8 +13,8 @@ import java.util.List;
 
 public class ProgMain {
 
-    private static List<Militaire> lesPO85 = new ArrayList<>();
-    private static List<Section> listeSection = new ArrayList<>();
+    private static final List<Militaire> lesPO85 = new ArrayList<>();
+    private static final List<Section> listeSection = new ArrayList<>();
 //    private static final Section lesPO85 = new Section("PO85");
 //    private static Section Section = new Section("PO85");
 
@@ -42,8 +42,6 @@ public class ProgMain {
 
     /**
      * Gestion du menu
-     *
-     * @param choix
      */
     private static void gestionMenu(int choix) {
         switch (choix) {
@@ -77,8 +75,8 @@ public class ProgMain {
         }
     }
 
-    /**
-     * Affiche le menu
+    /*
+      Affiche le menu
      */
 //    private static void afficherMenu() {
 //        System.out.println("Menu :");

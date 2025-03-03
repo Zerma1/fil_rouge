@@ -45,7 +45,7 @@ public /*abstract*/ class Militaire extends Personne {
                 "nom : " + super.getNom() + " | " +
                 "prenom : " + super.getPrenom() + " | " +
                 "grade : " + this.grade;
-    }
+    }d
 
     @Override
     public int hashCode() {

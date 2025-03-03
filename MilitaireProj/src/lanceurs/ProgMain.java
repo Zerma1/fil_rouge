@@ -11,12 +11,13 @@ import entities.armee.Militaire;
 import java.util.ArrayList;
 import java.util.List;
 
+import static commons.utils.AffichageConsole.printListe;
+
 public class ProgMain {
 
     private static final List<Militaire> lesPO85 = new ArrayList<>();
     private static final List<Section> listeSection = new ArrayList<>();
 //    private static final Section lesPO85 = new Section("PO85");
-//    private static Section Section = new Section("PO85");
 
 
     //MAIN
@@ -49,30 +50,32 @@ public class ProgMain {
                 System.out.println("Au revoir");
                 break;
             case 1:
-                System.out.println("Option 1 selected.");
+//                System.out.println("Option 1 selected.");
                 nouvelleSection();
                 break;
             case 2:
-                System.out.println("Option 2 selected.");
+//                System.out.println("Option 2 selected.");
                 afficherSection();
                 break;
             case 3:
-                System.out.println("Option 3 selected.");
+//                System.out.println("Option 3 selected.");
                 ajouterMembreSection();
                 break;
             case 4:
-                System.out.println("Option 4 selected.");
+//                System.out.println("Option 4 selected.");
                 supprimerMembreSection();
                 break;
             case 5:
-                System.out.println("Option 5 selected.");
-//                listeSection(0).modifierMembreSection();
+//                System.out.println("Option 5 selected.");
+                modifierMembreSection();
                 break;
             default:
                 System.out.println("Invalid choice. Please select a valid option.");
                 System.out.println("Le chois est invalide");
                 break;
         }
+
+        printListe(listeSection);
     }
 
     /*
@@ -81,10 +84,10 @@ public class ProgMain {
 //    private static void afficherMenu() {
 //        System.out.println("Menu :");
 //        System.out.println("1 - Nouvelle section");
-//        System.out.println("2 - Afficher les millitaires");
-//        System.out.println("3 - Ajouter un millitaire");
-//        System.out.println("4 - Supprimer un millitaire");
-//        System.out.println("5 - Modifier un millitaire");
+//        System.out.println("2 - Afficher les militaires");
+//        System.out.println("3 - Ajouter un militaire");
+//        System.out.println("4 - Supprimer un militaire");
+//        System.out.println("5 - Modifier un militaire");
 //        System.out.println("0 - Quitter");
 //    }
 
@@ -122,7 +125,7 @@ public class ProgMain {
      * Affiche les membres de la section
      */
     private static void afficherSection() {
-        AffichageConsole.printListe("Les PO85 :", lesPO85);
+        printListe("Les PO85 :", lesPO85);
     }
 
     /**
@@ -151,7 +154,7 @@ public class ProgMain {
      */
     private static void supprimerMembreSection() {
 
-        AffichageConsole.printListe("Les PO85 :", lesPO85);
+        printListe("Les PO85 :", lesPO85);
 
         System.out.println("Choisir un membre à supprimer :");
 

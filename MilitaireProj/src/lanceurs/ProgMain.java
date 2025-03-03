@@ -15,7 +15,7 @@ public class ProgMain {
     private static List<Section> listeSection = new ArrayList<>();
 //    private static final Section lesPO85 = new Section("PO85");
 //    private static Section Section = new Section("PO85");
-    
+
 
     //MAIN
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class ProgMain {
 
             AffichageConsole.afficherMenu("MENU PRINCIPALE :");
 
-            choix = LecureConsole.lectureChoisInt(0, 3);
+            choix = LecureConsole.lectureChoisInt(0, 5);
 
             gestionMenu(choix);
 
@@ -72,15 +72,15 @@ public class ProgMain {
     /**
      * Affiche le menu
      */
-    private static void afficherMenu() {
-        System.out.println("Menu :");
-        System.out.println("1 - Nouvelle section");
-        System.out.println("2 - Afficher les millitaires");
-        System.out.println("3 - Ajouter un millitaire");
-        System.out.println("4 - Supprimer un millitaire");
-        System.out.println("5 - Modifier un millitaire");
-        System.out.println("0 - Quitter");
-    }
+//    private static void afficherMenu() {
+//        System.out.println("Menu :");
+//        System.out.println("1 - Nouvelle section");
+//        System.out.println("2 - Afficher les millitaires");
+//        System.out.println("3 - Ajouter un millitaire");
+//        System.out.println("4 - Supprimer un millitaire");
+//        System.out.println("5 - Modifier un millitaire");
+//        System.out.println("0 - Quitter");
+//    }
 
     //SECTION
 

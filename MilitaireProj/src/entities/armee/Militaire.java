@@ -2,22 +2,27 @@ package entities.armee;
 
 import entities.Personne;
 import entities.grades.GMarine;
+import entities.grades.Grades;
 
 import java.util.Objects;
 
 public /*abstract*/ class Militaire extends Personne {
-    GMarine grade;
+    Grades grade;
     private int matiricule;
 
     //CONSTRUCTEUR
-    public Militaire(String nom, String prenom, GMarine grade, int matricule) {
+    public Militaire(String nom, String prenom, Grades grade, int matricule) {
         super(nom, prenom);
         this.grade = grade;
         this.matiricule = matricule;
     }
+    public Militaire(String nom, String prenom, int matricule) {
+        super(nom, prenom);
+        this.matiricule = matricule;
+    }
 
     //GETTERS
-    public GMarine getGrade() {
+    public Grades getGrade() {
         return grade;
     }
     public int getMatiricule() {
@@ -25,8 +30,8 @@ public /*abstract*/ class Militaire extends Personne {
     }
 
     //SETTER
-    public void setGrade(GMarine grade) {
-        this.grade = grade;
+    public void setGrade(Grades mGrade) {
+        this.grade = mGrade;
     }
     private void setMatiricule(int matricule){
         this.matiricule = matricule;
@@ -45,7 +50,7 @@ public /*abstract*/ class Militaire extends Personne {
                 "nom : " + super.getNom() + " | " +
                 "prenom : " + super.getPrenom() + " | " +
                 "grade : " + this.grade;
-    }d
+    }
 
     @Override
     public int hashCode() {

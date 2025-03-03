@@ -97,7 +97,7 @@ public class ProgMain {
      */
     private static void init() {
         lesPO85.add(new Marine("LE GLUDIC", "Quentin", GMarine.MAITRE, 1));
-        lesPO85.add(new Militaire("ZERMANI", "Baptiste", GMarine.QUARTIER_MAITRE, 14));
+        lesPO85.add(new Marine("ZERMANI", "Baptiste", GMarine.QUARTIER_MAITRE, 14));
         lesPO85.add(new Militaire("FONTAINE", "Baptiste", Grades.SERGENT, 2));
         lesPO85.add(new Militaire("FAURE", "Bryce", Grades.SERGENT, 3));
         lesPO85.add(new Militaire("KICHELM", "Thomas", Grades.SERGENT, 4));

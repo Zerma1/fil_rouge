@@ -4,9 +4,12 @@ import entities.grades.GMarine;
 
 public class Marine extends Militaire {
 
+    GMarine mGrade;
+
     //CONSTRUCTEUR
     public Marine(String nom, String prenom, GMarine grade, int matricule) {
-        super(nom, prenom, grade, matricule);
+        super(nom, prenom, matricule);
+        this.mGrade = grade;
     }
 
     //SETTER
@@ -18,17 +21,17 @@ public class Marine extends Militaire {
 //            this.prenom = prenom;
 //        }
         /**
-         * @param grade the grade to set
+         * @param mGrade the grade to set
          */
-        public void setGrade(GMarine grade) {
-            this.grade = grade;
+        public void setGrade(GMarine mGrade) {
+            this.mGrade = mGrade;
         }
         /**
          *
          */
         public void setGrade() {
 
-            grade = GMarine.setGrade();
+            mGrade = GMarine.setGrade();
         }
 
 //        public void setMatricule(int matricule) {
@@ -45,6 +48,6 @@ public class Marine extends Militaire {
         return "Marine ->" + " " +
                 "nom : " + super.getNom() + " | " +
                 "prenom : " + super.getPrenom() + " | " +
-                "grade : " + this.grade;
+                "grade : " + this.mGrade;
     }
 }

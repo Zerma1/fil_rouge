@@ -1,11 +1,12 @@
 package commons.utils;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
-import static commons.utils.readPrimitif.readInt;
-import static commons.utils.readPrimitif.readString;
 
 public class LecureConsole {
+
+    static Scanner scanner = new Scanner(System.in);
 
     /**
      * Lecture d'un Integer compris choix < index1 || choix > index2
@@ -24,19 +25,17 @@ public class LecureConsole {
         do{
             boucle = false;
 
-            choix = readInt();
-
+            choix = scanner.nextInt();
 
             if (choix < index1 || choix > index2){
                 System.out.println("Erreur de saisie, veuillez recommencer :");
                 boucle = true;
             }
-
-
         }while (boucle);
 
         return choix;
     }
+
     /**
      * Lecture d'un Integer
      * verifie que la saisie est bien un entier
@@ -52,20 +51,19 @@ public class LecureConsole {
         do{
             boucle = false;
 
-            choix = readInt();
-
-
-            if (choix<=0){
-                System.out.println("Erreur de saisie, veuillez recommencer :");
-                boucle = true;
-            }
-
+            choix = scanner.nextInt();
+//
+//
+//            if (choix<=0){
+//                System.out.println("Erreur de saisie, veuillez recommencer :");
+//                boucle = true;
+//            }
+//
 
         }while (boucle);
 
         return choix;
     }
-
     /**
      * Lecture d'un String
      * verifie que la saisie n'est pas vide
@@ -80,33 +78,7 @@ public class LecureConsole {
         do {
             boucle = false;
 
-            str = readString();
-
-            if (str.isEmpty()) {
-                System.out.println("Erreur de saisie," + str + "n'est pas une entrée valide veuillez recommencer :");
-                boucle = true;
-            }
-        }while (boucle);
-
-        return str;
-    }
-    /**
-     * Lecture d'un String
-     * verifie que la saisie n'est pas vide
-     *
-     * @param texte
-     * @return String
-     */
-    public static String lectureChoisString(String texte)
-    {
-        System.out.println(texte);
-        String str = "";
-        boolean boucle = true;
-
-        do {
-            boucle = false;
-
-            str = readString();
+            str = scanner.next();
 
             if (str.isEmpty()) {
                 System.out.println("Erreur de saisie," + str + "n'est pas une entrée valide veuillez recommencer :");
@@ -120,11 +92,11 @@ public class LecureConsole {
     public static LocalDate lectureDate(String text) {
         System.out.println(text);
         System.out.println("Entrez l'année :");
-        int annee = readInt();
+        int annee = lectureChoisInt();
         System.out.println("Entrez le mois :");
-        int mois = readInt();
+        int mois = lectureChoisInt();
         System.out.println("Entrez le jour :");
-        int jour = readInt();
+        int jour = lectureChoisInt();
         return LocalDate.of(annee, mois, jour);
     }
 }

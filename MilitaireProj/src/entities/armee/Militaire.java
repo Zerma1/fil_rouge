@@ -1,23 +1,23 @@
 package entities.armee;
 
 import entities.Personne;
-import entities.grades.Grades;
+import entities.grades.GMarine;
 
 import java.util.Objects;
 
 public /*abstract*/ class Militaire extends Personne {
-    Grades grade;
+    GMarine grade;
     private int matiricule;
 
     //CONSTRUCTEUR
-    public Militaire(String nom, String prenom, Grades grade, int matricule) {
+    public Militaire(String nom, String prenom, GMarine grade, int matricule) {
         super(nom, prenom);
         this.grade = grade;
         this.matiricule = matricule;
     }
 
     //GETTERS
-    public Grades getGrade() {
+    public GMarine getGrade() {
         return grade;
     }
     public int getMatiricule() {
@@ -25,7 +25,7 @@ public /*abstract*/ class Militaire extends Personne {
     }
 
     //SETTER
-    public void setGrade(Grades grade) {
+    public void setGrade(GMarine grade) {
         this.grade = grade;
     }
     private void setMatiricule(int matricule){

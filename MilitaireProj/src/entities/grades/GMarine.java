@@ -5,10 +5,9 @@ import commons.utils.LecureConsole;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-public enum Marine {
+public enum GMarine {
     //LISTE
     MOUSSE ("MOT", "OR-",0),
     MATELOT2 ("MO2", "OR-",1),
@@ -38,10 +37,10 @@ public enum Marine {
     private final String prefixOTAN;
     private final int indiceOTAN;
 
-    private static final List<Marine> listeGrade = new ArrayList<>();
+    private static final List<GMarine> listeGrade = new ArrayList<>();
 
     //CONSTRUCTEUR
-    Marine(String trigramme, String prefixOTAN, int indiceOTAN) {
+    GMarine(String trigramme, String prefixOTAN, int indiceOTAN) {
         this.trigramme = trigramme;
         this.prefixOTAN = prefixOTAN;
         this.indiceOTAN = indiceOTAN;
@@ -50,8 +49,25 @@ public enum Marine {
     //GETTERS
 
     //SETTER
+    public static GMarine setGrade(){
+        initListeGrade();
+
+        GMarine choix;
+
+        AffichageConsole.printListe("Choisir un grade", listeGrade);
+
+        int index = LecureConsole.lectureChoisInt(1, listeGrade.size());
+
+        choix = listeGrade.get(index-1);
+
+        return choix;
+    }
 
     //METHODE
+    private static void initListeGrade(){
+        listeGrade.addAll(Arrays.asList(GMarine.values()));
+    }
+
 
     //OVERRIDE & SURCHARGE
 

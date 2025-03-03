@@ -49,22 +49,28 @@ public class ProgMain {
                 System.out.println("Au revoir");
                 break;
             case 1:
-                nouvelleSection();
+                System.out.println("Option 1 selected.");
+//                nouvelleSection();
                 break;
             case 2:
-                afficherSection();
+                System.out.println("Option 2 selected.");
+//                afficherSection();
                 break;
             case 3:
-                ajouterMembreSection();
+                System.out.println("Option 3 selected.");
+//                ajouterMembreSection();
                 break;
             case 4:
-                supprimerMembreSection();
+                System.out.println("Option 4 selected.");
+//                supprimerMembreSection();
                 break;
             case 5:
+                System.out.println("Option 5 selected.");
 //                listeSection(0).modifierMembreSection();
                 break;
             default:
-                System.out.println("Le chois est invalide");
+                System.out.println("Invalid choice. Please select a valid option.");
+//                System.out.println("Le chois est invalide");
                 break;
         }
     }

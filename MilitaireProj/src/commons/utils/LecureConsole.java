@@ -17,7 +17,7 @@ public class LecureConsole {
      * @return
      */
     public static int lectureChoisInt(final int index1, final int index2) {
-
+//        System.out.println("lectureChoisInt(final int index1, final int index2)");
         int choix = -1;
 
         boolean boucle = true;
@@ -43,7 +43,7 @@ public class LecureConsole {
      * @return choix
      */
     public static int lectureChoisInt() {
-
+//        System.out.println("lectureChoisInt()");
         int choix = -1;
 
         boolean boucle = true;
@@ -52,13 +52,6 @@ public class LecureConsole {
             boucle = false;
 
             choix = scanner.nextInt();
-//
-//
-//            if (choix<=0){
-//                System.out.println("Erreur de saisie, veuillez recommencer :");
-//                boucle = true;
-//            }
-//
 
         }while (boucle);
 
@@ -72,6 +65,7 @@ public class LecureConsole {
      */
     public static String lectureChoisString()
     {
+//        System.out.println("lectureChoisString()");
         String str = "";
         boolean boucle = true;
 

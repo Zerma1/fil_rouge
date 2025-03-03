@@ -50,19 +50,19 @@ public class ProgMain {
                 break;
             case 1:
                 System.out.println("Option 1 selected.");
-//                nouvelleSection();
+                nouvelleSection();
                 break;
             case 2:
                 System.out.println("Option 2 selected.");
-//                afficherSection();
+                afficherSection();
                 break;
             case 3:
                 System.out.println("Option 3 selected.");
-//                ajouterMembreSection();
+                ajouterMembreSection();
                 break;
             case 4:
                 System.out.println("Option 4 selected.");
-//                supprimerMembreSection();
+                supprimerMembreSection();
                 break;
             case 5:
                 System.out.println("Option 5 selected.");
@@ -70,7 +70,7 @@ public class ProgMain {
                 break;
             default:
                 System.out.println("Invalid choice. Please select a valid option.");
-//                System.out.println("Le chois est invalide");
+                System.out.println("Le chois est invalide");
                 break;
         }
     }

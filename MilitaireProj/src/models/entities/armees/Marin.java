@@ -10,7 +10,7 @@ public class Marin extends Militaire {
     private SpecialiteMN specialite;
 
 
-    public Marin(String nom, String prenom, Grade_MN grade, SpecialiteMN specialite) {
+    protected Marin(String nom, String prenom, Grade_MN grade, SpecialiteMN specialite) {
         super(nom, prenom);
         setGrade(grade);
         setSpecialite(specialite);

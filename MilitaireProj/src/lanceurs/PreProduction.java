@@ -24,7 +24,7 @@ public class PreProduction {
         LocalDate debut = LocalDate.of(2024,12,02);
         LocalDate fin = LocalDate.of(2025,12,02);
 
-        Stage PO85 = EntitiesFactory.creerStage("PO85, debut, fin");
+        Stage PO85 = Factory.creerStage("PO85, debut, fin");
 
         //TODOO : creer stagier
 

@@ -1,6 +1,6 @@
 package lanceurs;
 
-import views.utils.AffichageConsole;
+import views.utils.Perso.AffichageConsole;
 import views.utils.LectureConsole;
 import models.entities.Militaire;
 import models.entities.Stage;

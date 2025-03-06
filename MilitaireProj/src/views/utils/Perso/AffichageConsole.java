@@ -1,4 +1,4 @@
-package views.utils;
+package views.utils.Perso;
 
 public class AffichageConsole {
 

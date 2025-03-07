@@ -1,6 +1,6 @@
 package lanceurs;
 
-import views.utils.Perso.AffichageConsole;
+import views.utils.AffichageConsole;
 import views.utils.LectureConsole;
 import models.entities.Militaire;
 import models.entities.Stage;
@@ -27,12 +27,12 @@ public class ProgMain {
 
     public static void main(String[] args) {
 
-//        init();
+        init();
         int choix;
         do{
             afficherNbJourAvantFinStage(PO85);
 
-            AffichageConsole.afficherMenu("MENU PRINCIPAL");
+            //AffichageConsole.afficherMenu("MENU PRINCIPAL");
 
             choix = LectureConsole.lectureChoixInt(0,3);
 
@@ -79,11 +79,11 @@ public class ProgMain {
 
         Militaire militaire = null;
 
-//        switch (choixArmee){
-//            case 1 -> militaire = saisirMarin(nom,prenom);
-//            case 2 -> militaire = saisirAviateur(nom,prenom);
-//            case 3 -> militaire = saisirTerrien(nom,prenom);
-//        }
+        switch (choixArmee){
+            case 1 -> militaire = saisirMarin(nom,prenom);
+            case 2 -> militaire = saisirAviateur(nom,prenom);
+            case 3 -> militaire = saisirTerrien(nom,prenom);
+        }
 
         return militaire;
     }
@@ -94,33 +94,33 @@ public class ProgMain {
         System.out.println("3 : ARMEE DE TERRE");
     }
 
-//    private static Marin saisirMarin(String nom, String prenom){
-//        //SAISIR GRADE
-//        Grade_MN grade = saisirGradeMN();
-//        //SAISIR SPE
-//        SpecialiteMN specialite = saisirSpecialiteMN();
-//        return new Marin(nom,prenom,grade,specialite);
-//    }
+    private static Marin saisirMarin(String nom, String prenom){
+        //SAISIR GRADE
+        Grade_MN grade = saisirGradeMN();
+        //SAISIR SPE
+        SpecialiteMN specialite = saisirSpecialiteMN();
+        return new Marin(nom,prenom,grade,specialite);
+    }
 
-//    private static Aviateur saisirAviateur(String nom, String prenom){
-//        //SAISIR GRADE
-//        Grade_AAE grade = saisirGradeAAE();
-//
-//        //SAISIR SPE
-//        SpecialiteAAE specialite = saisirSpecialiteAAE();
-//
-//        return new Aviateur(nom,prenom,grade,specialite);
-//    }
+    private static Aviateur saisirAviateur(String nom, String prenom){
+        //SAISIR GRADE
+        Grade_AAE grade = saisirGradeAAE();
 
-//    private static Terrien saisirTerrien(String nom, String prenom){
-//        //SAISIR GRADE
-//        Grade_AdT grade = saisirGradeAdT();
-//
-//        //SAISIR ARME
-//        Arme arme = saisirArme();
-//
-//        return new Terrien(nom,prenom,grade,arme);
-//    }
+        //SAISIR SPE
+        SpecialiteAAE specialite = saisirSpecialiteAAE();
+
+        return new Aviateur(nom,prenom,grade,specialite);
+    }
+
+    private static Terrien saisirTerrien(String nom, String prenom){
+        //SAISIR GRADE
+        Grade_AdT grade = saisirGradeAdT();
+
+        //SAISIR ARME
+        Arme arme = saisirArme();
+
+        return new Terrien(nom,prenom,grade,arme);
+    }
 
     private static Grade_MN saisirGradeMN(){
         for(int i = 0; i<Grade_MN.values().length; i++){
@@ -213,23 +213,23 @@ public class ProgMain {
         return ChronoUnit.DAYS.between(dateDebut, dateFin);
     }
 
-//    private static void init(){
-//        //Création de la section
-//        PO85.ajouterMilitaire(new Marin("ZERMANI", "Baptiste", Grade_MN.QUARTIER_MAITRE, SpecialiteMN.TECHNICIEN_SYSTEMES_NUMERIQUES));
-//        PO85.ajouterMilitaire(new Marin("LE GLUDIC", "Quentin", Grade_MN.MAITRE, SpecialiteMN.TECHNICIEN_SYSTEMES_NUMERIQUES));
-//        PO85.ajouterMilitaire(new Terrien("FONTAINE", "Baptiste", Grade_AdT.SERGENT, Arme.TROUPES_DE_MARINE));
-//        PO85.ajouterMilitaire(new Terrien("FAURE", "Bryce", Grade_AdT.SERGENT, Arme.TRANSMISSION));
-//        PO85.ajouterMilitaire(new Aviateur("BOUTANT", "Matthieu", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
-//        PO85.ajouterMilitaire(new Aviateur("LEMARTINEL", "Thomas", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
-//        PO85.ajouterMilitaire(new Aviateur("EUZEN", "Ashley", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
-//        PO85.ajouterMilitaire(new Aviateur("VILLENEUVE", "Harry", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
-//        PO85.ajouterMilitaire(new Aviateur("JOLY", "Simon", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
-//        PO85.ajouterMilitaire(new Terrien("KILCHEM", "Thomas", Grade_AdT.SERGENT, Arme.TRANSMISSION));
-//        PO85.ajouterMilitaire(new Aviateur("MICHELENA", "Patxi", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
-//        PO85.ajouterMilitaire(new Aviateur("LENOBLE", "Cyril", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
-//        PO85.ajouterMilitaire(new Aviateur("OLSEN", "Yves", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
-//        PO85.ajouterMilitaire(new Aviateur("ROKOTOBE", "Tsriniaina", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
-//    }
+    private static void init(){
+        //Création de la section
+        PO85.ajouterMilitaire(new Marin("ZERMANI", "Baptiste", Grade_MN.QUARTIER_MAITRE, SpecialiteMN.TECHNICIEN_SYSTEMES_NUMERIQUES));
+        PO85.ajouterMilitaire(new Marin("LE GLUDIC", "Quentin", Grade_MN.MAITRE, SpecialiteMN.TECHNICIEN_SYSTEMES_NUMERIQUES));
+        PO85.ajouterMilitaire(new Terrien("FONTAINE", "Baptiste", Grade_AdT.SERGENT, Arme.TROUPES_DE_MARINE));
+        PO85.ajouterMilitaire(new Terrien("FAURE", "Bryce", Grade_AdT.SERGENT, Arme.TRANSMISSION));
+        PO85.ajouterMilitaire(new Aviateur("BOUTANT", "Matthieu", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
+        PO85.ajouterMilitaire(new Aviateur("LEMARTINEL", "Thomas", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
+        PO85.ajouterMilitaire(new Aviateur("EUZEN", "Ashley", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
+        PO85.ajouterMilitaire(new Aviateur("VILLENEUVE", "Harry", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
+        PO85.ajouterMilitaire(new Aviateur("JOLY", "Simon", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
+        PO85.ajouterMilitaire(new Terrien("KILCHEM", "Thomas", Grade_AdT.SERGENT, Arme.TRANSMISSION));
+        PO85.ajouterMilitaire(new Aviateur("MICHELENA", "Patxi", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
+        PO85.ajouterMilitaire(new Aviateur("LENOBLE", "Cyril", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
+        PO85.ajouterMilitaire(new Aviateur("OLSEN", "Yves", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
+        PO85.ajouterMilitaire(new Aviateur("ROKOTOBE", "Tsriniaina", Grade_AAE.SERGENT, SpecialiteAAE.RESPONSABLE_SYSTEMES_NUMERIQUE));
+    }
 
 
 

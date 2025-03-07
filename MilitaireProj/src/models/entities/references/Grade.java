@@ -19,7 +19,7 @@ public enum Grade {
         this.codeOTAN = codeOTAN;
     }
 
-    public String getSymbol() {
+    String getSymbol() {
         return symbol;
     }
 

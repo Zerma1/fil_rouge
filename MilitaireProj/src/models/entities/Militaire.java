@@ -5,7 +5,7 @@ import java.util.Objects;
 public abstract class Militaire extends Personne {
 
 
-    public Militaire(String nom, String prenom) {
+    protected Militaire(String nom, String prenom) {
         super(nom,prenom);
     }
 

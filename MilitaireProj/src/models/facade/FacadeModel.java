@@ -13,7 +13,7 @@ public interface FacadeModel {
 
     void ajouterMembreSection(Stage stage, Militaire stagiaire);
 
-    void retirerMembreSection();
+    void retirerMembreSection(Stage stage, Militaire stagiaire);
 }
 
 

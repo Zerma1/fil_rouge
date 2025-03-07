@@ -1,5 +1,6 @@
 package models.facade;
 
+import models.entities.Militaire;
 import models.entities.Stage;
 
 import java.util.ArrayList;
@@ -9,6 +10,10 @@ public interface FacadeModel {
     Stage recupererStage(int choixStage);
 
     void ajouterStage(Stage stage);
+
+    void ajouterMembreSection(Stage stage, Militaire stagiaire);
+
+    void retirerMembreSection();
 }
 
 

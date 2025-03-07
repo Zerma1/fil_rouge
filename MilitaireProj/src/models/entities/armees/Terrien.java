@@ -9,7 +9,7 @@ public class Terrien extends Militaire {
     private Grade_AdT grade;
     private Arme arme;
 
-    public Terrien(String nom, String prenom, Grade_AdT grade, Arme arme) {
+    protected Terrien(String nom, String prenom, Grade_AdT grade, Arme arme) {
         super(nom, prenom);
         setGrade(grade);
         setArme(arme);

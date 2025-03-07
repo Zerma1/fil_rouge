@@ -11,7 +11,7 @@ public class Aviateur extends Militaire {
 
 
 
-    public Aviateur(String nom, String prenom, Grade_AAE grade, SpecialiteAAE specialite) {
+    protected Aviateur(String nom, String prenom, Grade_AAE grade, SpecialiteAAE specialite) {
         super(nom, prenom);
         setGrade(grade);
         setSpecialite(specialite);

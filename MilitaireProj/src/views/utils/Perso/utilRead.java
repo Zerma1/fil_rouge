@@ -1,5 +1,8 @@
 package views.utils.Perso;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class utilRead {
@@ -78,6 +81,24 @@ public class utilRead {
         }
 
         return resultat;
+    }
+
+    public static LocalDate readDate(final String pattern) {
+        String dateString;
+        LocalDate date = null;
+        boolean dateValide;
+        do {
+            try {
+                dateValide = true;
+                dateString = lectureClavier.nextLine();
+                date = LocalDate.parse(dateString, DateTimeFormatter.ofPattern(pattern));
+            } catch (DateTimeParseException e) {
+                System.out.println("Date erronée");
+                dateValide = false;
+            }
+        } while (!dateValide);
+
+        return date;
     }
 }
 

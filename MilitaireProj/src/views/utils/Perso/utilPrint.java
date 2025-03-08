@@ -1,17 +1,8 @@
-package commons.utils;
+package views.utils.Perso;
 
 import java.util.List;
 
-public class AffichageConsole {
-
-    public static void afficherMenu(String titreMenu){
-        System.out.println(titreMenu);
-        System.out.println("1 - Afficher les militaires");
-        System.out.println("2 - Ajouter un militaire");
-        System.out.println("3 - Supprimer un militaire");
-        System.out.println("4 - Modifier un militaire");
-        System.out.println("0 - Quitter");
-    }
+public class utilPrint {
 
     /**
      * Permet de derouler une liset<?> et d'afficher les elements
@@ -38,4 +29,12 @@ public class AffichageConsole {
         }
     }
 
+    public static void printErreur(final String msg) {
+        final String message = String.format("Erreur : %s", msg);
+        utilPrint.printString(message);
+    }
+
+    public static void printString(final String msg) {
+        System.out.println(msg);
+    }
 }

@@ -1,125 +1,108 @@
 package lanceurs;
 
-import commons.utils.AffichageConsole;
-import commons.utils.LecureConsole;
-import entities.Marine;
-import entities.Aire;
-import entities.Terre;
-import entities.Militaire;
-import entities.Section;
-import entities.grades.GradesAire;
-import entities.grades.GradesMarine;
-import entities.grades.GradesTerre;
+import models.entities.Militaire;
+import models.entities.Stage;
+import models.entities.references.Grade;
+import views.utils.LectureConsole;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.temporal.ChronoUnit;
 
 public class ProgMain {
 
-    private static List<Militaire> lesPO85 = new ArrayList<>();
-    private static List<Section> sections = new ArrayList<>();
+    private static Stage PO85 = new Stage(
+            "PO85",
+            LocalDate.of(2024,12,2),
+            LocalDate.of(2025,07,25));
 
     public static void main(String[] args) {
 
-        init();
         int choix;
+        do{
+            afficherNbJourAvantFinStage(PO85);
 
-        sections.add(new Section("PO85", LocalDate.parse("2024-12-02"), LocalDate.parse("2025-07-25"), lesPO85));
+            //AffichageConsole.afficherMenuSimple();
 
-        do {
-            afficherMenu();
-            choix = LecureConsole.lectureChoisInt(0, 5);
+            choix = LectureConsole.lectureChoixInt(0,3);
+
             gestionMenu(choix);
-        } while (choix != 0);
+
+        }while(choix != 0);
     }
 
-    /**
-     * Gestion du menu
-     * @param choix
-     */
-    private static void gestionMenu(int choix) {
-        switch (choix) {
-            case 1:
-                // creerSection();
-                System.out.println("Fonctionnalité non implémentée");
-                break;
-            case 2:
-                afficherSection();
-                break;
-            case 3:
-                ajouterMilitaire();
-                break;
-            case 4:
-                supprimerMilitaire();
-                break;
-            case 5:
-                // modifierMilitaire();
-                break;
-            case 0:
-                System.out.println("Au revoir");
-                break;
-            default:
-                System.out.println("Choix invalide");
-                break;
+    public static void gestionMenu(int choix){
+        switch (choix){
+            case 1 -> afficherLaSection();
+            case 2 -> ajouterMembreSection();
+            case 3 -> retirerMembreSection();
         }
     }
 
-    /**
-     * Affiche les membres de la section
-     */
-    private static void afficherSection() {
-        for (Section section : sections) {
-            section.afficherSection();
+    private static void afficherLaSection(){
+
+        int nbMilitaire = 1;
+        for (Militaire militaire : PO85.getSection()) {
+            System.out.println(nbMilitaire++ + " : "  + militaire.getNom() + " " + militaire.getPrenom());
         }
     }
 
-    /**
-     * Ajoute un militaire à la section
-     */
-    private static void ajouterMilitaire() {
-        Section section = sections.getFirst(); // Assuming we are adding to the first section
-        Section.ajouterMembre();
+    private static void ajouterMembreSection(){
+        //Créer un militaire
+        Militaire nouveauMilitaire = saisirMilitaire();
+
+        //Ajouter le militaire
+        PO85.ajouterMilitaire(nouveauMilitaire);
+
     }
 
-    /**
-     * Supprime un militaire de la section
-     */
-    private static void supprimerMilitaire() {
-        Section section = sections.getFirst();
-        Section.supprimerMembreSection();
+    private static Militaire saisirMilitaire(){
+
+        String nom = LectureConsole.lectureChaineCaracteres("Saisir le nom : ");
+        String prenom = LectureConsole.lectureChaineCaracteres("Saisir le prénom : ");
+
+        Grade grade = saisirGrade();
+
+        return new Militaire(nom, prenom) {
+            @Override
+            public boolean sePresenter() {
+
+                return false;
+            }
+        };
     }
 
-    /**
-     * Affiche le menu
-     */
-    private static void afficherMenu() {
-        System.out.println("Menu :");
-        System.out.println("1 - Creer section");
-        System.out.println("2 - Afficher les militaires");
-        System.out.println("3 - Ajouter un militaire");
-        System.out.println("4 - Supprimer un militaire");
-        System.out.println("5 - Modifier un militaire");
-        System.out.println("0 - Quitter");
+    private static Grade saisirGrade(){
+
+        for(int i = 0; i<Grade.values().length; i++){
+            System.out.println(i+1 + " "  + Grade.values()[i]);
+        }
+
+        int choix = LectureConsole.lectureChoixInt(1,Grade.values().length);
+
+        return Grade.values()[choix-1];
     }
 
-    /**
-     * Initialise la section
-     */
-    private static void init() {
-        lesPO85.add(new Marine("LE GLUDIC", "Quentin", 1, GradesMarine.MAITRE));
-        lesPO85.add(new Aire("FONTAINE", "Baptiste", 2, GradesAire.SERGENT));
-        lesPO85.add(new Aire("FAURE", "Bryce", 3, GradesAire.SERGENT));
-        lesPO85.add(new Aire("KICHELM", "Thomas", 4, GradesAire.SERGENT));
-        lesPO85.add(new Aire("BOUTTANT", "Matthieu", 5, GradesAire.SERGENT));
-        lesPO85.add(new Aire("LEMARTINEL", "Thomas", 6, GradesAire.SERGENT));
-        lesPO85.add(new Aire("JOLY", "Simon", 7, GradesAire.SERGENT));
-        lesPO85.add(new Aire("MICHELENA", "Patxi", 8, GradesAire.SERGENT));
-        lesPO85.add(new Aire("LENOBLE", "Cyril", 9, GradesAire.SERGENT));
-        lesPO85.add(new Aire("VILLENEUVE", "Harry", 10, GradesAire.SERGENT));
-        lesPO85.add(new Aire("EUZEN", "Ashley", 11, GradesAire.SERGENT));
-        lesPO85.add(new Aire("OLSEN", "Yves", 12, GradesAire.SERGENT));
-        lesPO85.add(new Aire("RAKOTOBE", "Tsiriniaina", 13, GradesAire.SERGENT));
-        lesPO85.add(new Marine("ZERMANI", "Baptiste", 2021, GradesMarine.QUARTIER_MAITRE));
+    private static void retirerMembreSection(){
+        afficherLaSection();
+        int choix = LectureConsole.lectureChoixInt(1, PO85.getSection().size());
+
+        Militaire militaire = PO85.getSection().get(choix-1);
+
+        PO85.supprimerMiltaire(militaire);
     }
+
+    public static void afficherNbJourAvantFinStage(Stage stage){
+
+        long nbTotalJour = nbJourEntreDeuxDate(stage.getDateDebut(), stage.getDateFin());
+        long nbJourAvantFin = nbJourEntreDeuxDate(LocalDate.now(), stage.getDateFin());
+
+        System.out.println("Nombre de jour avant la fin du stage " + nbJourAvantFin + "/" + nbTotalJour);
+    }
+
+    private static long nbJourEntreDeuxDate(LocalDate dateDebut, LocalDate dateFin){
+
+        return ChronoUnit.DAYS.between(dateDebut, dateFin);
+    }
+
+
 }

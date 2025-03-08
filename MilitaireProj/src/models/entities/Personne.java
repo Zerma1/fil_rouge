@@ -1,13 +1,9 @@
-package entities;
+package models.entities;
 
 public class Personne {
 
     private String nom;
     private String prenom;
-    private int bAnnee;
-    private int bMoi;
-    private int bJour;
-
 
     public Personne(String nom, String prenom) {
         setNom(nom);
@@ -30,13 +26,6 @@ public class Personne {
         this.prenom = prenom;
     }
 
-    public int hashCode() {
-        return this.getNom().hashCode() + this.getPrenom().hashCode();
-    }
 
-    @Override
-    public boolean equals(Object tester){
 
-        return this.hashCode() == tester.hashCode() && tester.getClass() == Personne.class;
-    }
 }

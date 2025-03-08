@@ -46,9 +46,15 @@ public class Presenteur {
     public void gestionMenuPrincipal(int choix){
 
         switch (choix){
-            case 1 -> afficherLaSection();
-            case 2 -> ajouterMembreSection();
-            case 3 -> retirerMembreSection();
+            case 1: 
+                afficherLaSection();
+                break;
+            case 2: 
+                ajouterMembreSection();
+                break;
+            case 3: 
+                retirerMembreSection();
+                break;
         }
     }
 
@@ -69,10 +75,18 @@ public class Presenteur {
         int choix = view.choixMenu(1,ConstanceView.TYPE_MILITAIRE.size());
         Militaire monMilitaire;
         switch (choix){
-            case 1 -> monMilitaire = saisirAviateur();
-            case 2 -> monMilitaire = saisirMarin();
-            case 3 -> monMilitaire = saisirTerrien();
-            default -> monMilitaire = saisirAviateur();
+            case 1: 
+                monMilitaire = saisirAviateur();
+                break;
+            case 2: 
+                monMilitaire = saisirMarin();
+                break;
+            case 3: 
+                monMilitaire = saisirTerrien();
+                break;
+            default: 
+                monMilitaire = saisirAviateur();
+                break;
         }
 
         return monMilitaire;
@@ -87,8 +101,6 @@ public class Presenteur {
     private Terrien saisirTerrien(){
         return null;
     }
-
-
 
     public void retirerMembreSection(){
 

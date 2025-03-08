@@ -35,13 +35,16 @@ public class utilRead {
     }
     public static int readInt(){
         int choix;
-        boolean boucle = false;
 
         choix = lectureClavier.nextInt();
 
         return choix;
     }
 
+    /**
+     * read string
+     * @return string
+     */
     public static String ReadString(){
         return lectureClavier.next();
     }
@@ -49,18 +52,19 @@ public class utilRead {
         System.out.print(entete);
         return lectureClavier.next();
     }
-
-    public static String readString(){
+    public static String ReadStringNextLine(){
         return lectureClavier.nextLine();
     }
 
-    /*
-    */
+    /**
+     * 
+     * @param libelle 
+     */
     public static Boolean ReadBoolean(String libelle){
         boolean resultat = false;
 
         System.out.println(String.format("%s (oui/non) : ", libelle));
-        String reponse = readString().toUpperCase();
+        String reponse = ReadStringNextLine().toUpperCase();
         switch (reponse) {
             case "OUI":
                 resultat = true;
@@ -83,6 +87,11 @@ public class utilRead {
         return resultat;
     }
 
+    /**
+     * read a date whith a given patern
+     * @param pattern patern of date
+     * @return
+     */
     public static LocalDate readDate(final String pattern) {
         String dateString;
         LocalDate date = null;

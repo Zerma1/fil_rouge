@@ -49,12 +49,16 @@ public class Presenteur {
 
     private void gestionMenuPrincipal(int choix) {
 
-
-
         switch (choix) {
-            case 1 -> afficherLaSection();
-            case 2 -> ajouterMembreSection();
-            case 3 -> retirerMembreSection();
+            case 1: 
+                afficherLaSection();
+                break;
+            case 2: 
+                ajouterMembreSection();
+                break;
+            case 3: 
+                retirerMembreSection();
+                break;
         }
     }
 
@@ -90,8 +94,6 @@ public class Presenteur {
         switch (choix){
             case 1 -> mi ;
         }
-
-
 
         return null;
     }

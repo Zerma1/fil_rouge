@@ -29,4 +29,10 @@ public class FacadeModelImpl implements FacadeModel{
     public void ajouterStagiaireDunStage(Stage stage, Militaire militaire) {
 
     }
+
+    @Override
+    public Militaire saisirMilitaire(String type) {
+
+        return null;
+    }
 }

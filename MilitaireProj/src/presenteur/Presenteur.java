@@ -79,13 +79,19 @@ public class Presenteur {
     }
 
     private Aviateur saisirAviateur(){
-        return null;
+        Aviateur aviateur;
+        aviateur = (Aviateur) model.saisirMilitaire(ConstanceView.TYPE_MILITAIRE.get(0));
+        return aviateur;
     }
     private Marin saisirMarin(){
-        return null;
+        Marin marin;
+        marin = (Marin) model.saisirMilitaire(ConstanceView.TYPE_MILITAIRE.get(1));
+        return marin;
     }
     private Terrien saisirTerrien(){
-        return null;
+        Terrien terrien;
+        terrien = (Terrien) model.saisirMilitaire(ConstanceView.TYPE_MILITAIRE.get(2));
+        return terrien;
     }
 
 

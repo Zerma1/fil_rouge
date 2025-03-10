@@ -13,5 +13,6 @@ public interface FacadeModel {
 
     void ajouterStagiaireDunStage(Stage stage, Militaire militaire);
 
-
+    Militaire saisirMilitaire(String type);
+    
 }

@@ -75,23 +75,19 @@ public class Presenteur {
             default -> monMilitaire = saisirAviateur();
         }
 
+        model.ajouterStagiaireDunStage(model.recupererStage(0), monMilitaire);
+
         return monMilitaire;
     }
 
     private Aviateur saisirAviateur(){
-        Aviateur aviateur;
-        aviateur = (Aviateur) model.saisirMilitaire(ConstanceView.TYPE_MILITAIRE.get(0));
-        return aviateur;
+        return null;
     }
     private Marin saisirMarin(){
-        Marin marin;
-        marin = (Marin) model.saisirMilitaire(ConstanceView.TYPE_MILITAIRE.get(1));
-        return marin;
+        return null;
     }
     private Terrien saisirTerrien(){
-        Terrien terrien;
-        terrien = (Terrien) model.saisirMilitaire(ConstanceView.TYPE_MILITAIRE.get(2));
-        return terrien;
+        return null;
     }
 
 

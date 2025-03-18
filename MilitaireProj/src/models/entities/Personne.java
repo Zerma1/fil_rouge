@@ -1,5 +1,7 @@
 package models.entities;
 
+import java.util.Objects;
+
 public class Personne {
 
     private String nom;
@@ -27,5 +29,25 @@ public class Personne {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Personne personne = (Personne) o;
+
+        return Objects.equals(nom, personne.nom) && Objects.equals(prenom, personne.prenom);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom, prenom);
+    }
+
+    @Override
+    public String toString() {
+        return "Personne{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                '}';
+    }
 }

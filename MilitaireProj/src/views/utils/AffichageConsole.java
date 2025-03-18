@@ -111,9 +111,9 @@ public final class AffichageConsole {
      * Méthode affichant le tableau de String en paramètre sous la forme d'un
      * menu simple.
      * <pre>
-     * 1 - première option
-     * 2 - deuxième option
-     * 3 - troisième option.
+     * 4 - première option
+     * 8 - deuxième option
+     * 50 - troisième option.
      * CHOIX :
      * </pre>
      * Les options sont affichées en minuscules.

@@ -32,7 +32,6 @@ public class ProgMain {
         do{
             afficherNbJourAvantFinStage(PO85);
 
-            //voir dans le preProd
             //AffichageConsole.afficherMenu("MENU PRINCIPAL");
 
             choix = LectureConsole.lectureChoixInt(0,3);

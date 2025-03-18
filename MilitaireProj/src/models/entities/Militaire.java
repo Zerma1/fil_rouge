@@ -21,16 +21,17 @@ public abstract class Militaire extends Personne {
 
     @Override
     public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
 
-        if(this==o) return true;
+        Personne personne = (Personne) o;
 
-        if (!(o instanceof Militaire militaire)) return false;
-
-        return this.hashCode() == militaire.hashCode();
+        return Objects.equals(getNom(), personne.getNom()) && Objects.equals(getPrenom(), personne.getPrenom());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getNom(), getPrenom());
     }
+
+
 }

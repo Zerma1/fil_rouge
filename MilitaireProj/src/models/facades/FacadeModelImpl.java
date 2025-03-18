@@ -22,17 +22,11 @@ public class FacadeModelImpl implements FacadeModel{
 
     @Override
     public void supprimerStagiaireDunStage(Stage stage, Militaire militaire) {
-
+        stage.supprimerMiltaire(militaire);
     }
 
     @Override
     public void ajouterStagiaireDunStage(Stage stage, Militaire militaire) {
-
-    }
-
-    @Override
-    public Militaire saisirMilitaire(String type) {
-
-        return null;
+        stage.ajouterMilitaire(militaire);
     }
 }

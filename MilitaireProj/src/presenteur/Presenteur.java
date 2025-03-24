@@ -1,99 +1,75 @@
 package presenteur;
 
-import models.entities.Militaire;
-import models.entities.Stage;
-import models.entities.armees.Aviateur;
-import models.entities.armees.Marin;
-import models.entities.armees.Terrien;
-import models.facades.FacadeModel;
-import views.ConstanceView;
-import views.facades.FacadeView;
+import model.entities.Stage;
+import model.entities.references.ConstanteMetier;
+import model.facades.FacadeModel;
+import view.facades.FacadeView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Presenteur {
 
-    FacadeView view;
-    FacadeModel model;
+    FacadeModel facadeModel;
+    FacadeView facadeView;
+    private static List<String> menu = new ArrayList<>();
 
-    public Presenteur(FacadeView view, FacadeModel model) {
-        setView(view);
-        setModel(model);
+    public Presenteur(FacadeView facadeView, FacadeModel facadeMetier) {
+        setFacadeMetier(facadeMetier);
+        setFacadeView(facadeView);
     }
 
-    public void setView(FacadeView view) {
-        this.view = view;
+    public FacadeModel getFacadeMetier() {
+        return facadeModel;
     }
 
-    public void setModel(FacadeModel model) {
-        this.model = model;
+    public void setFacadeMetier(FacadeModel facadeMetier) {
+        this.facadeModel = facadeMetier;
+    }
+
+    public FacadeView getFacadeView() {
+        return facadeView;
+    }
+
+    public void setFacadeView(FacadeView facadeView) {
+        this.facadeView = facadeView;
+    }
+
+    private static void init(){
+        menu = ConstanteMetier.MENU_PRINCIPAL;
+    }
+
+    public void addStageAuModel(Stage stage) {
+        facadeModel.addStage(stage);
     }
 
     public void start(){
+        init();
+
+        Stage empire = facadeModel.getStageParNom("Empire Galactique");
+
+        facadeView.afficherSection(empire.getListMilitaire());
 
         int choix;
-
         do{
-            view.afficherMenu(ConstanceView.MENU_PRINCIPAL);
-            choix = view.choixMenu(0, 3);
-            gestionMenuPrincipal(choix);
+            //afficher menu utilisateur
+            facadeView.afficherMenu(menu);
 
-        }while(choix != 0);
+            choix = facadeView.choisirMenu(menu.size());
+            gereChoixMenuPrincipal(empire, choix);
+
+        }while(choix != menu.size());
+
+        //afficher la date de fin de stage
+        facadeView.afficherNbJourAvantFin(empire);
+
     }
 
-    public void initStage(Stage stage){
-        model.ajouterStage(stage);
-    }
-
-    public void gestionMenuPrincipal(int choix){
-
-        switch (choix){
-            case 1 -> afficherLaSection();
-            case 2 -> ajouterMembreSection();
-            case 3 -> retirerMembreSection();
+    private void gereChoixMenuPrincipal(Stage stage, int choixMenu) {
+        switch (choixMenu){
+            case 1 -> facadeView.afficherSection(stage.getListMilitaire());
+            case 2 -> facadeModel.ajouterMilitaire(stage, facadeView.creerMilitaire(facadeView.choisirArmee()));
+            case 3 -> facadeModel.retirerMilitaire(stage, facadeView.choisirMilitaireRetirer(stage.getListMilitaire()));
         }
     }
-
-    public void afficherLaSection(){
-        view.afficherSectionDeStage(model.recupererStage(0));
-    }
-
-    public void ajouterMembreSection(){
-
-    }
-
-    private Militaire saisirMilitaire(){
-
-        String nom = view.saisirNom();
-        String prenom = view.saisirPrenom();
-
-        view.afficherMenu(ConstanceView.TYPE_MILITAIRE);
-        int choix = view.choixMenu(1,ConstanceView.TYPE_MILITAIRE.size());
-        Militaire monMilitaire;
-        switch (choix){
-            case 1 -> monMilitaire = saisirAviateur();
-            case 2 -> monMilitaire = saisirMarin();
-            case 3 -> monMilitaire = saisirTerrien();
-            default -> monMilitaire = saisirAviateur();
-        }
-
-        model.ajouterStagiaireDunStage(model.recupererStage(0), monMilitaire);
-
-        return monMilitaire;
-    }
-
-    private Aviateur saisirAviateur(){
-        return null;
-    }
-    private Marin saisirMarin(){
-        return null;
-    }
-    private Terrien saisirTerrien(){
-        return null;
-    }
-
-
-
-    public void retirerMembreSection(){
-
-    }
-
 }
